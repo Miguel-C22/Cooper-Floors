@@ -1,6 +1,6 @@
 <?php
 //php -S localhost:9081
-// print_r($_SERVER);
+
 $emailOutPut = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_POST["formType"])){
