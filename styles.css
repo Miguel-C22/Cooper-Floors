@@ -1,0 +1,1015 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Pacifico&family=Shantell+Sans&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    margin: auto;
+    font-family: 'Lato', sans-serif;
+    background-color: whitesmoke;
+}
+
+main{
+    margin: auto;
+}
+
+button{
+    font-size: 1rem;
+    background: black;
+    color: white;
+    border-style: none;
+}
+
+/*Animation*/
+.hidden{
+    opacity: 0;
+    transition: all 2s;
+}
+.show{
+    opacity: 1;
+}
+
+/*-------------navigation---------------*/
+nav{
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    top: 0;
+    font-size: 1.25rem;
+    background-color: #e6e3de;
+    padding: 10px 0;
+}
+
+.closeHamburgerBtn, 
+.hamburgerBtn,
+.dropDownLinks,
+.HamburgerphoneNumber{
+    display: none;
+}
+
+a{
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.headerLogo{
+    width: 400px;
+    height: auto;
+}
+
+.headerLogo, .phoneNumber{
+    margin: 0 50px;
+}
+
+/*Nav Links*/
+.navLinks{
+    display: flex;
+    gap: 30px;
+}
+
+.navLinks hr{
+    display: none;
+}
+
+/*Product Button*/
+.productBtn{
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/*Drop Down Links*/
+.dropDownLinks a {
+    line-height: 40px;
+    cursor: pointer;
+}
+
+.dropDownLinks a:hover {
+    color: rgb(119, 116, 116);
+    /* background-color: #62805e; */
+    width: auto;
+    text-align: center;
+}
+
+.dropDownLinks{
+    background-color: #e6e3de;
+    width: 200px;
+    padding: 0 10px;
+    font-size: 1.25rem;
+}
+
+.dropDownLinks hr:last-child{
+    display: none;
+}
+
+.dropDownLinks hr{
+    display: block;
+}
+
+
+/*Toggle*/
+.dropDownLinksActive{
+    display: block;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    margin-left: 160px;
+    top: 60px;
+}
+
+@media screen and (max-width: 1200px){
+    .closeHamburgerBtn, 
+    .hamburgerBtn{
+        display: block;
+    }
+
+    .headerLogo{
+       margin: 0 auto;
+    }
+    
+
+    .hamburgerBtn{
+        display: block;
+        color: black;
+        rotate: 90deg;
+        margin-left: 50px;
+        font-weight: bold;
+        font-size: 1.5em;
+        background: none;
+        border: none;
+    }
+
+    /*Nav Links*/
+    .navLinks{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        top: 0;
+        background-color: #e6e3de;
+        padding: 50px 60px 20px 15px;
+        left: -600px;
+        transition: 400ms;
+        gap: 10px;
+    }
+
+    .navLinks hr{
+        display:block;
+        width: 300px;
+    }
+
+    .contact{
+        margin-top: 0px;
+    }
+
+    /*Drop Down*/
+    .dropDownLinks{
+        top: 45%;
+        margin-left: 0;
+        padding-left: 20px;
+        background-color: #e6e3de;
+    }
+
+    .dropDownLinks hr:last-child{
+        display: block;
+    }
+
+    /*Product Button*/
+    .productBtn{
+        position: absolute;
+        top: 150px;
+     }
+ 
+     .btnHr{
+         margin-top: 40px;
+     }
+
+    /*Phone Number*/
+    .HamburgerphoneNumber{
+        display: block;
+        font-size: 1rem;
+     }
+    
+     .phoneNumber{
+        display: none;
+     }
+
+      /*Close Hamburger Button*/
+     .closeHamburgerBtn{
+        position: absolute;
+        left: 85%;
+        top: 5%;
+        background: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 1.75rem;
+        color: white;
+        border-color: white;
+        border-width: 2px;
+        background-color: black;
+     }
+
+    /*Toggle*/
+    .hamburgerMenuAvtive{
+        left: 0;
+    }
+
+    .contactLink{
+        margin-top: 150px ;
+        transition: 200ms;
+    }
+}
+@media screen and (max-width: 480px){
+    .headerLogo{
+        width: 300px;
+    } 
+    .navLinks{
+        align-items: center;
+        width: 100%;
+        left: -600px;
+    }
+    .closeHamburgerBtn{
+        left: 70%;
+     }
+     .dropDownLinks{
+        padding-right: 30px;
+        text-align: center;
+    }
+    .dropDownLinks hr{
+        width: auto;
+    }
+    /*Toggle*/
+    .hamburgerMenuAvtive{
+        left: 0;
+    }
+
+    .contactLink{
+        margin-top: 150px ;
+        transition: 200ms;
+    }
+}
+@media screen and (max-width: 380px){ /*Come Back to all the ones that are 380px*/
+    .hamburgerBtn{
+        margin-left: 10px;
+    }
+    .headerLogo{
+        margin: 0 120px 0 0;
+     }
+     .headerLogo{
+        width: 250px;
+        height: auto;
+    }
+}
+
+/*-------------estimates and design consultation------------------*/
+header{
+    display: grid;
+    grid-row: 1;
+    margin: 75px auto 0 ;
+}
+.headerText,
+header img{
+    grid-row: 1;
+    grid-column: 1;
+}
+
+header img{
+    width: 100%;
+    height: auto;
+}
+
+.headerText{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+}
+.headerText p{
+    font-size: 5rem;
+    font-weight: bold;
+    font-style: italic;
+    line-height: 7rem;
+    color: white;
+}
+
+.headerText button {
+    font-size: 2rem;
+    font-weight: bold;
+    width: 330px;
+    height: 80px;
+}
+ 
+@media screen and (max-width: 1300px){
+    .headerText p{
+        font-size: 4rem;
+        line-height: 5rem;
+    }
+    .headerText button {
+        width: 250px;
+        height: 60px;
+    }  
+}
+@media screen and (max-width: 1000px){
+    .headerText p{
+        font-size: 3rem;
+        line-height: 4rem;
+    }
+    .headerText button {
+        height: 50px;
+        font-size: 1.5rem;
+    }  
+}
+@media screen and (max-width: 800px){
+    .headerText p{
+        font-size: 2.5rem;
+        line-height: 3rem;
+    }
+    .headerText button {
+        height: 40px;
+        width: 200px;
+        font-size: 1rem;
+    }  
+    header img{
+        width: 100%;
+        height: 200px;
+    }
+}
+@media screen and (max-width: 600px){
+    .headerText{
+        gap: 10px;
+    }
+    .headerText p{
+        font-size: 2rem;
+        line-height: 2.5rem;
+    }
+    .headerText button {
+        height: 40px;
+        width: 150px;
+        font-size: 1rem;
+    }  
+}
+@media screen and (max-width: 500px){
+    .headerText p{
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+    header img{
+        width: 100%;
+        height: 150px;
+    }
+}
+@media screen and (max-width: 480px){
+    header{
+        margin: 58px auto 0 ;
+    }
+}
+
+/*-----------Residential And Commercial Services----------------*/
+.commercialServices{
+    background-color: #62805e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    gap: 20px;
+    padding: 20px 0;
+    
+}
+
+.commercialServices button{
+    font-size: 1rem;
+    font-weight: bold;
+    width: 250px;
+    height: 50px;
+}
+@media screen and (max-width: 1100px){
+    .commercialServices{
+        font-size: 1.5rem;        
+    }
+}
+@media screen and (max-width: 950px){
+    .commercialServices button{
+        width: 230px;
+        height: 50px;
+    }
+}
+@media screen and (max-width: 800px){
+    .commercialServices button{
+        font-size: 1rem;
+        width: 150px;
+        height: 50px;
+    } 
+}
+@media screen and (max-width: 680px){
+    .commercialServices{
+        background-color: #62805e;
+        display: flex;
+        flex-direction: column;
+        font-size: 1.5rem;
+    }
+}
+@media screen and (max-width: 520px){
+    .commercialServices{
+        background-color: #62805e;
+        display: flex;
+        flex-direction: column;
+        font-size: 1.5rem;
+    }
+    .commercialServices p,
+    .commercialServices button{
+        text-align: center;
+        padding: 0 20px;
+   }
+   .commercialServices button{
+    height: 40px;
+}
+}
+/*------------Flooring Options-----------*/
+.flooringOption:nth-child(2){
+ transition-delay: 200ms;
+}
+.flooringOption:nth-child(3){
+    transition-delay: 400ms;
+}
+.flooringOption:nth-child(4){
+    transition-delay: 600ms;
+}
+.flooringOptions{
+    display: grid;
+    text-align: center;
+    justify-content: center;
+    width: auto;
+    margin-top: 50px;
+    gap: 30px;
+}
+
+.carpet, 
+.laminate, 
+.luxuryVinyl{
+    grid-row: 1;
+    background-repeat: no-repeat;
+    text-align: center;
+    width: 350px;
+    height: 400px;
+    color: white;
+    border-radius: 5%;
+}
+.carpet h2,   
+.laminate h2, 
+.luxuryVinyl h2{
+    margin: 20px;
+}
+.carpet button, 
+.laminate button, 
+.luxuryVinyl button {
+    margin-top: 200px;
+    width: 300px;
+    height: 50px;
+    font-weight: bold;
+}
+.carpet{
+    background-image: url("images/Carpet.png");
+}
+.luxuryVinyl{
+    background-image: url("images/LuxuryVinyl.png");
+}
+.laminate{
+    background-image: url("images/Laminate.png");
+}
+@media screen and (max-width: 1300px){
+
+    .carpet, 
+    .laminate, 
+    .luxuryVinyl{
+        width: 300px;
+    }
+    .carpet button, 
+    .laminate button, 
+    .luxuryVinyl button {
+    margin-top: 200px;
+    width: 250px;
+    height: 50px;
+    font-weight: bold;
+}
+}
+@media screen and (max-width: 950px){
+    .carpet, 
+    .laminate, 
+    .luxuryVinyl{
+        width: 250px;
+    }
+    .carpet p, 
+    .laminate p, 
+    .luxuryVinyl p{
+        padding: 0 10px;
+    }
+    .carpet button, 
+    .laminate button, 
+    .luxuryVinyl button {
+    width: 200px;
+}
+}
+@media screen and (max-width: 820px){
+    .carpet,  
+    .laminate, 
+    .luxuryVinyl{
+       grid-row: 3;
+    }
+    .carpet{
+        grid-row: 1;
+    }
+    .laminate{
+        grid-row: 2;
+    }
+    .luxuryVinyl{
+        grid-row: 3;
+    }
+    .carpet, 
+    .laminate, 
+    .luxuryVinyl{
+        width: 350px;
+    }
+    .carpet button, 
+    .laminate button, 
+    .luxuryVinyl button {
+        width: 300px;
+    }
+}
+@media screen and (max-width: 380px){
+    .carpet, 
+    .laminate, 
+    .luxuryVinyl{
+        width: 300px;
+    }
+    .carpet button, 
+    .laminate button, 
+    .luxuryVinyl button {
+    margin-top: 200px;
+    width: 250px;
+    height: 50px;
+    font-weight: bold;
+}
+}
+
+/*------------Customer Review----------*/
+.customer-review-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background-color: #e6e3de;
+    margin-top: 50px;
+    padding: 20px; /* Add some padding for better visibility */
+}
+
+.forward,
+.backward {
+    font-size: 2rem;
+    font-weight: bolder;
+    text-align: center;
+    border-radius: 50%;
+    margin: auto 10px; /* Adjust the margin for better spacing */
+    width: 60px;
+    height: 60px;
+}
+
+.customerReviews {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+}
+
+.customerContainer {
+    width: 800px;
+}
+
+.customerContainer h2 {
+    font-size: 2.5rem;
+    margin: 50px 0 30px;
+}
+
+.imgName {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+}
+
+.imgName p{
+   margin-bottom: 10px;
+}
+
+.imgName img {
+    height: 100px;
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.review {
+    font-size: 20px;
+    margin-bottom: 50px;
+}
+
+@media screen and (max-width: 1100px) {
+    .customerReviews {
+        height: auto;
+        margin-bottom: 50px;
+    }
+    .customerContainer {
+        width: 90%; /* Reduce the width for smaller screens */
+    }
+    .forward,
+    .backward {
+       position: absolute;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       bottom: 20px;
+    }
+    .forward{
+        margin-left: 150px;
+    }
+    .backward{
+        margin-right: 150px;
+    }
+}
+
+
+
+@media screen and (max-width: 700px) {
+    .customer-review-container {
+        padding: 10px; /* Reduce the padding for smaller screens */
+    }
+    .customerContainer {
+        width: 100%; /* Make the review container full-width */
+    }
+}
+
+
+/*-------------About Us--------------------*/ 
+.aboutUsSection{
+    background-color: #DCDBD2; 
+    padding: 5px 0;
+}
+.aboutUsContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin: 100px auto;
+    width: 1200px; 
+}
+.aboutUsImage{
+    width: 600px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.aboutUsContent{
+    font-size: 1.25rem;
+}
+
+.aboutUsContent h1{
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+.aboutUsContent button{
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 20px 0 0 0;
+    width: 200px;
+    height: 50px;
+}
+@media screen and (max-width: 1200px){
+    .aboutUsContainer{
+        flex-direction: column;
+        width: 600px;  
+    }
+}
+@media screen and (max-width: 650px){
+    .aboutUsContainer{
+        width: 500px;  
+    }
+    .aboutUsImage{
+        width: 500px;
+        height: auto;
+    }
+}
+@media screen and (max-width: 500px){
+    .aboutUsContainer{
+        width: 300px;  
+    }
+    .aboutUsImage{
+        width: 300px;
+        height: auto;
+    }
+}
+@media screen and (max-width: 380px){
+    .aboutUsContainer{
+        width: 100px;  
+    }
+}
+
+/*-----------Footer----------*/
+footer{
+    background-color: #62805e;
+    color: white;
+}
+
+footer a{
+    color: white;
+}
+
+.footerContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: auto;
+    gap: 200px;
+    padding-top: 50px;
+}
+.siteMap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 500px;
+}
+
+.siteMapLinks{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.contactAdress,
+.hours{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footerLogo img{
+    width: 800px;
+}
+
+.footerLogo{
+    text-align: center;
+    padding-top: 100px;
+}
+
+.hours span, address{
+    font-weight: bold;
+}
+
+.copySocial{
+    text-align: center;
+    margin-top: 50px;
+    padding-bottom: 20px;
+}
+
+.copySocial a{
+   font-size: 2.5rem;
+    
+}
+@media screen and (max-width: 1300px){
+    .footerContainer{
+        gap: 100px;
+    }
+}
+
+@media screen and (max-width: 1100px){
+    .footerContainer{
+        gap: 50px;
+    }
+}
+@media screen and (max-width: 1000px){
+    .footerContainer{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 50px;
+    }
+    .footerLogo img{
+        width: 100%;
+        height: auto;
+    }
+    .siteMap{
+        width:auto;
+        margin: 0 50px;
+    }
+}
+
+
+/*-----------About Page---------------*/
+.aboutUsPage{
+    margin-top: 80px;
+    background:linear-gradient(#62805e 25%,#e6e3de 25%);
+    padding-bottom: 100px;
+}
+.aboutSpan{
+    background-color: white;
+    width: 300px;
+    height: 5px;
+}
+.aboutContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    gap: 50px;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    width: 800px;
+    padding-top: 50px;
+}
+
+.aboutContainer img{
+    width: 600px;
+    height: auto;
+    border-radius: 10px;
+}
+.firstLetter::first-letter{
+    font-weight: thin;
+    font-size: 3rem;
+}
+.signature{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin: 20px;
+}
+@media screen and (max-width: 1000px){
+    .headerText .ourStory{
+        font-size: 4rem;
+    }
+}
+
+@media screen and (max-width: 850px){
+    .aboutContainer img{
+        width: 500px;
+        height: auto;
+    }
+    .aboutContainer{
+        width: 500px;
+    }
+    .signature img{
+        width: 200px;
+        height: auto;
+    }
+    .aboutSpan{
+        width: 200px;
+    }
+    .headerText .ourStory{
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 610px){
+    .aboutContainer img{
+        width: 400px;
+        height: auto;
+    }
+    .aboutContainer{
+        width: 400px;
+    }
+    .headerText .ourStory{
+        margin-bottom: 10px;
+    }
+}
+@media screen and (max-width: 480px){
+    .aboutUsPage{
+        margin-top: 60px;
+    }
+    .aboutContainer img{
+        width: 300px;
+        height: auto;
+    }
+    .aboutContainer{
+        width: 300px;
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+    .signature{
+        gap: 10px;
+    }
+    .signature img{
+        width: 150px;
+        height: auto;
+    }
+    .aboutSpan{
+        width: 200px;
+    }
+}
+/*-----------Residential and Commercial---------------*/
+.residentialCommercialContainer{
+    max-width: 2400px;
+    margin: auto;
+}
+.intro{
+    text-align: center;
+    font-size: 2rem;
+    font-style: italic;
+    margin: 50px;
+}
+.residentialCommercialMain{
+    display: grid;
+    grid-template-columns: auto auto;
+    line-height: 1.5rem;
+    margin: auto;
+}
+.residentialCommercialMain li{
+    line-height: 1.75rem;
+}
+.mainElementsH2{
+    margin-bottom: 30px;
+}
+.mainElements{
+    background-color: #e6e3de;
+    padding: 50px;
+}
+.flooringApplication{
+    background-color: #DCDBD2;
+    padding: 50px;
+}
+.service{
+    background-color: #DCDBD2;
+    padding: 50px;
+}
+.serviceDifference{
+    background-color: #e6e3de;
+    padding: 50px;
+}
+.findIdealCarpetContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+.findIdealCarpetText{
+    padding: 0 100px 0 100px;
+}
+.findIdealCarpetText p{
+    padding: 10px 0;
+}
+.findIdealCarpetStoreImg{
+    /* padding: 0 100px 0 0 ; */
+}
+.findIdealCarpetStoreImg img{
+    width: 800px;
+    height: auto;
+}
+@media screen and (max-width: 1400px){
+    .findIdealCarpetContainer{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 50px 0 0;
+        gap: 50px;
+    }
+    .findIdealCarpetStoreImg img{
+        width: 100%;
+        height: auto;
+    }
+    .findIdealCarpetStoreImg{
+        padding:0;
+    }
+}
+@media screen and (max-width: 700px){
+    .intro{
+        font-size: 1.2rem;
+        margin: 20px;
+    }
+    .residentialCommercialMain{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .service{
+        background-color: #e6e3de;
+    }
+    .serviceDifference{
+        background-color: #DCDBD2;
+    }
+    .findIdealCarpetText{
+        padding: 0 50px;
+    }
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="form.css">
+    <title>Contact</title>
+</head>
+<body>
+    <nav>
+        <button class="hamburgerBtn" id="hamburgerBtn">|||</button>
+        <a class="headerLogo" href="index.php"><img class="headerLogo" src="images/CooperFloorsLogo.PNG" alt=""></a>
+        <div class="navLinks" id="navLinks">
+            <button class="closeHamburgerBtn" id="closeHamburgerBtn">X</button>
+            <a href="index.php">Home</a>
+            <hr>
+            <a href="about.html">About</a>
+            <hr>
+            <button id="productBtn" class="productBtn">Products 
+                <img src="images/dropDownArrow.png" alt="" width="10" height="8">
+            </button>
+            <hr class="btnHr">
+                <div class="dropDownLinks" id="dropDownLinks">
+                    <a href="carpet.html">Carpet</a>
+                    <hr>
+                    <a href="luxuryVinyl.html">Luxury Vinyl</a>
+                    <hr>
+                    <a href="laminate.html">Laminate</a>
+                    <hr>
+                </div>
+            <a id="contactLink" class="contact" href="contact.html">Contact</a>
+            <hr>
+            <a href="tel: 763-786-9616" class="HamburgerphoneNumber" id="HamburgerphoneNumber">Phone: 763-786-9616</a>
+        </div>
+        <a href="tel: 763-786-9616" class="phoneNumber" id="phoneNumber">Phone: 763-786-9616</a>
+    </nav>
+
+
+    <header>
+        <div class="headerTextContact">
+            <p>GET IN TOUCH<br>
+            <span class="conctactSpan">We look forward to hearing from you</span></p>
+        </div>
+    </header>
+    
+
+    <main class="contactPageContainer">
+            <iframe class="iframeContactPage" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2810.4336203472362!2d-93.33038312379983!3d45.21879547107101!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b33d0730a78345%3A0xd2a1f9d17d483ff5!2s13640%20Crosstown%20Blvd%20NW%2C%20Andover%2C%20MN%2055304!5e0!3m2!1sen!2sus!4v1692465345032!5m2!1sen!2sus" width="600" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <section class="contactPage">
+            <h1>Contact Us</h1>
+            <form action="" class="contactUsPageForm">
+                <div class="name">
+                    <div class="label">
+                        <label for="fname">First name*</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="label">
+                        <label for="fname">Last name*</label>
+                        <input type="text"  required>
+                    </div>
+                    
+                </div>
+                <div class="contactInfo">
+                    <div class="label">
+                        <label for="fname">Email*</label>
+                        <input type="email"  required>
+                    </div>
+                    <div class="label">
+                        <label for="fname">Phone number*</label>
+                        <input type="tel" name="PhoneNumber" id="phoneNumberInput" required>
+                    </div>
+                
+                </div>
+                <div class="message" >
+                    <div class="label">
+                        <label for="fname">Message*</label>
+                        <textarea class="userInput" placeholder="How can we help you!"></textarea>
+                    </div>
+                </div>
+                <input class="sumbit" type="submit">
+            </form>
+        </section>
+    </main>
+    
+
+    <footer>
+        <div class="footerLogo">
+            <img src="images/CooperFloorsLogoWhite.PNG" alt="">
+        </div>
+        <div class="footerContainer">
+            <div class="siteMap">
+               <h2>SiteMap</h2>
+               <div class="siteMapLinks">
+                <a href="index.php">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="freeEstimate.html">Free Estimate</a>
+                <a href="residential&Commercial.html">Residential & Commercial</a>
+                <a href="carpet.html">Carpet</a>
+                <a href="laminate.html">Laminate</a>
+                <a href="luxuryVinyl.html">Luxury Vinyl</a>
+               </div>
+            </div>
+            <div class="contactAdress">
+                <h2>Andover, MN</h2>
+                <a href="tel:763-786-9616" id="phoneNumber">PHONE: 763-786-9616</a>
+                <address>ADDRESS: 13640 Crosstown Blvd NW</address>
+                <a href="mailto:">EMAIL: CooperFloors@outlook.com</a>
+            </div>
+            <div class="hours">
+                <h2>Hours</h2>
+                <p>Monday-Friday <br><span>10:00AM - 5:00pm</span></p>
+                <p>Saturday <br><span>10:00 AM - 3:00PM</span></p>
+                <p>Sunday <br><span>Closed</span></p>
+            </div>
+        </div>
+        <div class="copySocial">
+            &copy; Cooper Floors 
+            <!-- <a class="fa fa-facebook-square" aria-hidden="true"></a> -->
+        </div>
+    </footer>
+
+    <script src="index.js" type="module"></script>
+</body>
+</html>
