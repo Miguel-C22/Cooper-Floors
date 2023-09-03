@@ -2,7 +2,7 @@
 
 const reviews = [
     {
-        img: "images/customerReview/tony.png",
+        img: "Images/customerReview/tony.png",
         name: 'Dr. Tony Lawther',
         review: `So grateful for the service we received from Cooper's Floors. 
         We wanted to update all the flooring in our office, but only had a small time window 
@@ -12,7 +12,7 @@ const reviews = [
         carpet.`
     }, 
     {
-        img: "images/customerReview/alysha.png",
+        img: "Images/customerReview/alysha.png",
         name: 'Alysha Smethurst',
         review: `We purchased carpeting for our home through Cooper’s Floors 
         & could not be happier!  Everyone was helpful & knowledgeable in guiding us 
@@ -25,7 +25,7 @@ const reviews = [
         We will continue to utilize them for all of our future flooring needs!`
     },
     {
-        img: "images/customerReview/jill.png",
+        img: "Images/customerReview/jill.png",
         name: 'Jill Dahl',
         review: `A couple years back I purchased flooring for my entire home during a 
         new construction build and was very pleased with the service I received from Cooper's
@@ -39,12 +39,12 @@ const reviews = [
         on my flooring when people stop by.`
     },
     {
-        img: "images/customerReview/craig.png",
+        img: "Images/customerReview/craig.png",
         name: 'Craig & Mary Moline',
         review: `Very nice, very helpful`
     },
     {
-        img: "images/customerReview/jolene.png",
+        img: "Images/customerReview/jolene.png",
         name: 'Jolene Roe',
         review: `I recently purchased carpet and laminate through Coopers' Floors 
         and I could not be more happy with my experience. The staff was very 
@@ -54,7 +54,7 @@ const reviews = [
         the future.`
     },
     {
-        img: "images/customerReview/jacque.png",
+        img: "Images/customerReview/jacque.png",
         name: 'Metropolitan Transportation Network, Inc. <br> -Jacque-',
         review: `We are thrilled with the exceptional commercial 
         carpet and design services provided by your company. 

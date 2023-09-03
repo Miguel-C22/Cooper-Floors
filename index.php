@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <nav>
         <button class="hamburgerBtn" id="hamburgerBtn">|||</button>
-        <a class="headerLogo" href="index.php"><img class="headerLogo" src="images/CooperFloorsLogo.PNG" alt=""></a>
+        <a class="headerLogo" href="index.php"><img class="headerLogo" src="Images/CooperFloorsLogo.PNG" alt=""></a>
         <div class="navLinks" id="navLinks">
             <button class="closeHamburgerBtn" id="closeHamburgerBtn">X</button>
             <a href="index.php">Home</a>
@@ -74,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="about.html">About</a>
             <hr>
             <p id="productBtn" class="productBtn">Products 
-                <img src="images/dropDownArrow.png" alt="" width="10" height="8">
+                <img src="Images/dropDownArrow.png" alt="" width="10" height="8">
             </p>
             <hr class="btnHr">
                 <div class="dropDownLinks" id="dropDownLinks">
@@ -181,7 +181,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </section>
         <section class="aboutUsSection">
             <div class="aboutUsContainer">
-            <img class="aboutUsImage hidden" src="images/AboutUs.jpeg" alt="">
+            <img class="aboutUsImage hidden" src="Images/AboutUs.jpeg" alt="">
             <div class="aboutUsContent hidden">
                 <h1>We are the Cooper's</h1>
                 <p>Gary and Jan, originally from a South Dakota farm town,
@@ -206,7 +206,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     <footer>
         <div class="footerLogo">
-            <img src="images/CooperFloorsLogoWhite.PNG" alt="">
+            <img src="Images/CooperFloorsLogoWhite.PNG" alt="">
         </div>
         <div class="footerContainer">
             <div class="siteMap">
