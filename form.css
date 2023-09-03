@@ -1,4 +1,42 @@
+/* Email Out Put Message */
+.emailOutPut{
+   position: absolute;
+   background-color: #62805e;
+   color: white;
+   font-weight: bold;
+   top: 30%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 100%;
+   max-width: 400px;
+   height: auto;
+   text-align: center;
+   font-size: 2rem;
+   padding: 100px 20px ;
+   border: 1px solid black;
+   box-shadow: 10px 10px 5px #88888877;
+}
 
+.closeEmailOutput{
+   position: absolute;
+   top: 20px;
+   right: 20px;
+   float: right;
+   background: none;
+   color: white;
+   border: none;
+   font-size: 1.25rem;
+}
+
+@media (max-width: 480px) {
+   .emailOutPut {
+      max-width: 200px;
+      padding: 50px 20px;
+      top: 21%;
+   }
+}
+
+/* Form */ 
 form{
     display: flex;
     flex-direction: column;
