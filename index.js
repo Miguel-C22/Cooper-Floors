@@ -12,11 +12,23 @@ const carpetModal = document.getElementById('carpetModal')
 
 const customerReviews = document.getElementById("customerReviews")
 
+const emailOutPut = document.getElementById('emailOutPut')
+
 function x(){
     document.querySelector('body').addEventListener('click', event =>{
         modal(event)
         closeModal(event)
+        closeEmailOutput(event)
     })
+}
+
+
+//--------------------------Closing Email output-----------------------------
+function closeEmailOutput(event){
+    if(event.target.id == "closeEmailOutput"){
+        emailOutPut.style.display='none'
+        emailOutPut.innerHTML = " "
+    }   
 }
 
 //--------------------------Navigation-----------------------------

@@ -24,6 +24,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($selectedChoice === "Estimate") {
             $msg .= "<div style='display: block; margin-bottom: 10px;'><h4 style='display: inline;'>Choice:</h4><p style='display: inline; margin: 0;'> Estimate</p></div>";
         }
+        if ($selectedChoice === "Consultation") {
+            $msg .= "<div style='display: block; margin-bottom: 10px;'><h4 style='display: inline;'>Choice:</h4><p style='display: inline; margin: 0;'> Consultation</p></div>";
+        }
     } else {
         $subject = "Contact Request";
     }
@@ -88,6 +91,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <a href="tel: 763-786-9616" class="phoneNumber" id="phoneNumber">Phone: 763-786-9616</a>
     </nav>
+       
+    <?php
+        // Check if the emailOutPut is set and not empty
+        if (isset($emailOutPut) && !empty($emailOutPut)) {
+            echo '<div id="emailOutPut" class="emailOutPut">' . $emailOutPut . '<button id="closeEmailOutput" class="closeEmailOutput">close</button></div>';
+
+        } else {
+            // If emailOutPut is empty or not set, do not display the container
+            echo $emailOutPut;
+        }
+    ?>
+        
     <header>
         <img src="Images/homeHeader.png" alt="">
         <div class="headerText">
@@ -98,11 +113,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </header>
 
     <main>
-        <div>
-        <?php
-            echo($emailOutPut);
-        ?>
-        </div>
          <div class="commercialServices">
             <p>We provide residential and commercial services</p>
             <a href="residential&Commercial.html"><button>Learn More</button></a>
