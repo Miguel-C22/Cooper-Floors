@@ -10,8 +10,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $formType = "";
     }
     
-
-    $to = 'sampleReceiver@test.com';
+    //CoopersFloors@outlook.com
+    $to = "miguel.ganoza@yahoo.com";
     $subject = '';
 
     $msg = "";
@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Include the Message field
     $msg .= "<div style='display: block; margin-bottom: 10px;'><h4 style='display: inline;'>Message:</h4><p style='display: inline; margin: 0;'> " . $_POST["Message"] . "</p></div>";
 
-    $headers = "From: sampleSender@test.com" . "\r\n";
+    $headers = "From: ". $_POST["Email"] . "\r\n";
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 

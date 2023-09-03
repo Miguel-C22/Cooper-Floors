@@ -55,7 +55,7 @@ const reviews = [
     },
     {
         img: "Images/customerReview/jacque.png",
-        name: 'Metropolitan Transportation Network, Inc. <br> -Jacque-',
+        name: 'Metropolitan Transportation Network, Inc. <br> -Jacquie-',
         review: `We are thrilled with the exceptional commercial 
         carpet and design services provided by your company. 
         The product quality and end results exceeded our expectations, 
