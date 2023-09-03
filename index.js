@@ -186,7 +186,7 @@ function render(){
     })
     function autoAdvanceReview() {
         slideForward();
-        setTimeout(autoAdvanceReview, 15000);
+        setTimeout(autoAdvanceReview, 25000);
     }
     //Initial review display
     reviewSlider(i)
