@@ -482,13 +482,13 @@ header img{
     font-weight: bold;
 }
 .carpet{
-    background-image: url("images/Carpet.png");
+    background-image: url("Images/Carpet.png");
 }
 .luxuryVinyl{
-    background-image: url("images/LuxuryVinyl.png");
+    background-image: url("Images/LuxuryVinyl.png");
 }
 .laminate{
-    background-image: url("images/Laminate.png");
+    background-image: url("Images/Laminate.png");
 }
 @media screen and (max-width: 1300px){
 
