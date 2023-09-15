@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
     //CoopersFloors@outlook.com
-    $to = "miguel.ganoza209@gmail.com";
+    $to = "miguel.ganoza@yahoo.com";
     $subject = '';
 
     $msg = "";
