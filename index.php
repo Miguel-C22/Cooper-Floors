@@ -2,6 +2,10 @@
 //php -S localhost:9081
 
 $emailOutPut = "";
+
+ini_set("SMTP", "http://159.203.161.98/");
+ini_set("sendmail_from", "miguel.ganoza@yahoo.com");
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_POST["formType"])){
         $formType = $_POST["formType"];
