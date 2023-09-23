@@ -1013,3 +1013,32 @@ footer a{
         padding: 0 50px;
     }
 }
+
+/*-----------Redirect Page---------------*/
+.redirectContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: whitesmoke;
+    gap: 10px;
+    border-style: solid;
+    border-width: 3px;
+    padding: 75px 0;
+    margin: 0 30px;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.redirectContainer img{
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    margin-right: 50px;
+}
+
