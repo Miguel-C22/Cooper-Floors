@@ -1,4 +1,12 @@
 /* Email Out Put Message */
+input{
+   font-size: 1.25rem;
+}
+
+textarea{
+   font-size: 1.5rem;
+}
+
 .emailOutPut{
    position: absolute;
    background-color: #62805e;
@@ -68,7 +76,7 @@ form{
  }
  .userInput {
     margin: 1px;
-    padding: 1px 0 1px 10px;
+    padding: 10px 0 1px 10px;
     width: 530px;
     height: 300px;
     resize: none;
@@ -315,7 +323,4 @@ form{
   line-height: 3rem;
   padding-bottom: 50px;
 }
-
-}
-@media screen and (max-width: 400px){
 }
