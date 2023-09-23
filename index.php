@@ -1,57 +1,57 @@
 <?php
 //php -S localhost:9081
 
-$emailOutPut = "";
+// $emailOutPut = "";
 
-ini_set("SMTP", "159.203.161.98");
-ini_set("sendmail_from", "miguel.ganoza@yahoo.com");
+// ini_set("SMTP", "159.203.161.98");
+// ini_set("sendmail_from", "miguel.ganoza@yahoo.com");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if(isset($_POST["formType"])){
-        $formType = $_POST["formType"];
-    }
-    else {
-        $formType = "";
-    }
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//     if(isset($_POST["formType"])){
+//         $formType = $_POST["formType"];
+//     }
+//     else {
+//         $formType = "";
+//     }
     
-    //CoopersFloors@outlook.com
-    $to = "miguel.ganoza@yahoo.com";
-    $subject = '';
+//     //CoopersFloors@outlook.com
+//     $to = "miguel.ganoza@yahoo.com";
+//     $subject = '';
 
-    $msg = "";
+//     $msg = "";
 
-    if ($formType === "estimation") {
-        $selectedChoice = isset($_POST["EstimateOrConsultation"]) ? $_POST["EstimateOrConsultation"] : "";
-        $subject = "Estimation Request";
+//     if ($formType === "estimation") {
+//         $selectedChoice = isset($_POST["EstimateOrConsultation"]) ? $_POST["EstimateOrConsultation"] : "";
+//         $subject = "Estimation Request";
         
-        // Include the "Choice" field only if "Estimate" is selected
-        if ($selectedChoice === "Estimate") {
-            $msg .= "<div style='display: block; margin-bottom: 10px;'><h4 style='display: inline;'>Choice:</h4><p style='display: inline; margin: 0;'> Estimate</p></div>";
-        }
-        if ($selectedChoice === "Consultation") {
-            $msg .= "<div style='display: block; margin-bottom: 10px;'><h4 style='display: inline;'>Choice:</h4><p style='display: inline; margin: 0;'> Consultation</p></div>";
-        }
-    } else {
-        $subject = "Contact Request";
-    }
+//         // Include the "Choice" field only if "Estimate" is selected
+//         if ($selectedChoice === "Estimate") {
+//             $msg .= "<div style='display: block; margin-bottom: 10px;'><h4 style='display: inline;'>Choice:</h4><p style='display: inline; margin: 0;'> Estimate</p></div>";
+//         }
+//         if ($selectedChoice === "Consultation") {
+//             $msg .= "<div style='display: block; margin-bottom: 10px;'><h4 style='display: inline;'>Choice:</h4><p style='display: inline; margin: 0;'> Consultation</p></div>";
+//         }
+//     } else {
+//         $subject = "Contact Request";
+//     }
 
-    $msg .= "<div style='display: block; margin-bottom: 10px;'><h4 style='display: inline;'>From:</h4><p style='display: inline;'> " . $_POST["FirstName"] . " " . $_POST["LastName"] . "</p></div>";
-    $msg .= "<div style='display: block; margin-bottom: 10px;'><h4 style='display: inline;'>Email:</h4><p style='display: inline;'> " . $_POST["Email"] . "</p></div>";
-    $msg .= "<div style='display: block; margin-bottom: 10px;'><h4 style='display: inline;'>Phone Number:</h4><p style='display: inline;'> " . (isset($_POST["PhoneNumber"]) ? $_POST["PhoneNumber"] : "") . "</p></div>";
+//     $msg .= "<div style='display: block; margin-bottom: 10px;'><h4 style='display: inline;'>From:</h4><p style='display: inline;'> " . $_POST["FirstName"] . " " . $_POST["LastName"] . "</p></div>";
+//     $msg .= "<div style='display: block; margin-bottom: 10px;'><h4 style='display: inline;'>Email:</h4><p style='display: inline;'> " . $_POST["Email"] . "</p></div>";
+//     $msg .= "<div style='display: block; margin-bottom: 10px;'><h4 style='display: inline;'>Phone Number:</h4><p style='display: inline;'> " . (isset($_POST["PhoneNumber"]) ? $_POST["PhoneNumber"] : "") . "</p></div>";
 
-    // Include the Message field
-    $msg .= "<div style='display: block; margin-bottom: 10px;'><h4 style='display: inline;'>Message:</h4><p style='display: inline; margin: 0;'> " . $_POST["Message"] . "</p></div>";
+//     // Include the Message field
+//     $msg .= "<div style='display: block; margin-bottom: 10px;'><h4 style='display: inline;'>Message:</h4><p style='display: inline; margin: 0;'> " . $_POST["Message"] . "</p></div>";
 
-    $headers = "From: ". $_POST["Email"] . "\r\n";
-    $headers .= "MIME-Version: 1.0\r\n";
-    $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+//     $headers = "From: ". $_POST["Email"] . "\r\n";
+//     $headers .= "MIME-Version: 1.0\r\n";
+//     $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
-    if (mail($to, $subject, $msg, $headers)) {
-       $emailOutPut = "Email sent successfully!";
-    } else {
-        $emailOutPut = "Failed to send email.";
-    }
-}
+//     if (mail($to, $subject, $msg, $headers)) {
+//        $emailOutPut = "Email sent successfully!";
+//     } else {
+//         $emailOutPut = "Failed to send email.";
+//     }
+// }
 ?>
 
 
@@ -97,14 +97,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </nav>
        
     <?php
-        // Check if the emailOutPut is set and not empty
-        if (isset($emailOutPut) && !empty($emailOutPut)) {
-            echo '<div id="emailOutPut" class="emailOutPut">' . $emailOutPut . '<button id="closeEmailOutput" class="closeEmailOutput">close</button></div>';
+        // // Check if the emailOutPut is set and not empty
+        // if (isset($emailOutPut) && !empty($emailOutPut)) {
+        //     echo '<div id="emailOutPut" class="emailOutPut">' . $emailOutPut . '<button id="closeEmailOutput" class="closeEmailOutput">close</button></div>';
 
-        } else {
-            // If emailOutPut is empty or not set, do not display the container
-            echo $emailOutPut;
-        }
+        // } else {
+        //     // If emailOutPut is empty or not set, do not display the container
+        //     echo $emailOutPut;
+        // }
     ?>
         
     <header>
@@ -148,8 +148,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
          <section>
             <h2 class="homePageContactUsH2">Contact US</h2>
             <div class="homeContactForm">
-            <form action="index.php" method="POST">
+            <form action="https://formspree.io/f/xbjvzzwz" method="POST">
                 <input type="hidden" name="_subject" value="New Email">
+                <input type="hidden" name="_next" value="https://yourdomain.co/thanks.html">
                 <div class="name">
                     <div class="label">
                         <label for="fname">First name*</label>
@@ -180,8 +181,90 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <input class="sumbit" type="submit" value="Send">
             </form>
+
+            <iframe class="iframHomePage" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2810.4336203472362!2d-93.33038312379983!3d45.21879547107101!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b33d0730a78345%3A0xd2a1f9d17d483ff5!2s13640%20Crosstown%20Blvd%20NW%2C%20Andover%2C%20MN%2055304!5e0!3m2!1sen!2sus!4v1692465345032!5m2!1sen!2sus" width="600" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
+
+
+
+
+            <!-- <div id="mc_embed_shell">
+                <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
+            <style type="text/css">
+                    #mc_embed_signup{background:#fff; false;clear:left; font:14px Helvetica,Arial,sans-serif; width: 600px;}
+                    /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+                    We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+            </style>
+            <div id="mc_embed_signup">
+                <form action="https://yahoo.us21.list-manage.com/subscribe/post?u=3acf00d52943319397b63c4ca&amp;id=af336c145f&amp;f_id=00dbe0e6f0" 
+                    method="post"
+                    id="mc-embedded-subscribe-form" 
+                    name="mc-embedded-subscribe-form" 
+                    class="validate" 
+                    target="_blank"
+                >
+                    <div id="mc_embed_signup_scroll">
+
+                        <div class="mc-field-group">
+                            <label for="mce-FNAME">First Name </label>
+                            <input type="text" name="FNAME" class=" text" id="mce-FNAME" value="">
+                        </div>
+
+                        <div class="mc-field-group">
+                            <label for="mce-LNAME">Last Name </label>
+                            <input type="text" name="LNAME" class=" text" id="mce-LNAME" value="">
+                        </div>
+
+                        <div class="mc-field-group">
+                            <label for="mce-MMERGE5">Phone Number </label>
+                            <input type="number" name="MMERGE5" class=" number" id="mce-MMERGE5" value="">
+                        </div>
+
+                        <div class="mc-field-group">
+                            <label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label>
+                            <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value="">
+                        </div>
+
+                        <div class="mc-field-group">
+                            <label for="mce-MMERGE3">Message </label>
+                            <input type="text" name="MMERGE3" class=" text" id="mce-MMERGE3" value="">
+                        </div>
+
+                    <div id="mce-responses" class="clear foot">
+                        <div class="response" id="mce-error-response" style="display: none;"></div>
+                        <div class="response" id="mce-success-response" style="display: none;"></div>
+                    </div>
+
+                    <div aria-hidden="true" style="position: absolute; left: -5000px;">
+                        /* real people should not fill this in and expect good things - do not remove this or risk form bot signups */
+                        <input type="text" name="b_3acf00d52943319397b63c4ca_af336c145f" tabindex="-1" value="">
+                    </div>
+                    <div class="optionalParent">
+                        <div class="clear foot">
+                            <input type="submit" name="Submit" id="mc-embedded-subscribe" class="button" value="Submit">
+                            <p style="margin: 0px auto;">
+                        </div>
+                    </div>
+                    </div>
+                </form>
+            </div>
+            <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+            <script type="text/javascript">
+            (function($) {window.fnames = new Array(); 
+            window.ftypes = new Array();
+            fnames[1]='FNAME';ftypes[1]='text';
+            fnames[2]='LNAME';ftypes[2]='text';
+            fnames[5]='MMERGE5';ftypes[5]='number';
+            fnames[0]='EMAIL';ftypes[0]='email';
+            fnames[3]='MMERGE3';ftypes[3]='text';
+            fnames[4]='MMERGE4';ftypes[4]='dropdown';}
+            (jQuery));var $mcj = jQuery.noConflict(true);</script>
+            </div>
+
             <iframe class="iframHomePage" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2810.4336203472362!2d-93.33038312379983!3d45.21879547107101!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b33d0730a78345%3A0xd2a1f9d17d483ff5!2s13640%20Crosstown%20Blvd%20NW%2C%20Andover%2C%20MN%2055304!5e0!3m2!1sen!2sus!4v1692465345032!5m2!1sen!2sus" width="600" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
+         -->
         </section>
         <section class="aboutUsSection">
             <div class="aboutUsContainer">
