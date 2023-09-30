@@ -96,9 +96,7 @@ a{
 
 .dropDownLinks a:hover {
     color: rgb(119, 116, 116);
-    /* background-color: #62805e; */
     width: auto;
-    text-align: center;
 }
 
 .dropDownLinks{
