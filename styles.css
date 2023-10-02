@@ -42,7 +42,7 @@ nav{
     top: 0;
     font-size: 1.25rem;
     background-color: #e6e3de;
-    padding: 0;
+    padding: 10px 0;
 }
 
 .closeHamburgerBtn, 
@@ -131,12 +131,13 @@ a{
         display: block;
     }
 
-    /* nav{
-        padding: 0;
-    } */
+    nav{
+        padding: 2px;
+    }
 
     .headerLogo{
        margin: 0 auto;
+       width: 300px;
     }
     
     
