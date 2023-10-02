@@ -60,7 +60,7 @@ a{
 }
 
 .headerLogo{
-    width: 400px;
+    width: 350px;
     height: auto;
 }
 
@@ -131,9 +131,14 @@ a{
         display: block;
     }
 
+    nav{
+        padding: 0;
+    }
+
     .headerLogo{
        margin: 0 auto;
     }
+    
     
 
     .hamburgerBtn{
