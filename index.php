@@ -1,252 +1,190 @@
 <?php
 //php -S localhost:9081
-
-// $emailOutPut = "";
-
-// ini_set("SMTP", "159.203.161.98");
-// ini_set("sendmail_from", "miguel.ganoza@yahoo.com");
-
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//     if(isset($_POST["formType"])){
-//         $formType = $_POST["formType"];
-//     }
-//     else {
-//         $formType = "";
-//     }
-    
-//     //CoopersFloors@outlook.com
-//     $to = "miguel.ganoza@yahoo.com";
-//     $subject = '';
-
-//     $msg = "";
-
-//     if ($formType === "estimation") {
-//         $selectedChoice = isset($_POST["EstimateOrConsultation"]) ? $_POST["EstimateOrConsultation"] : "";
-//         $subject = "Estimation Request";
-        
-//         // Include the "Choice" field only if "Estimate" is selected
-//         if ($selectedChoice === "Estimate") {
-//             $msg .= "<div style='display: block; margin-bottom: 10px;'><h4 style='display: inline;'>Choice:</h4><p style='display: inline; margin: 0;'> Estimate</p></div>";
-//         }
-//         if ($selectedChoice === "Consultation") {
-//             $msg .= "<div style='display: block; margin-bottom: 10px;'><h4 style='display: inline;'>Choice:</h4><p style='display: inline; margin: 0;'> Consultation</p></div>";
-//         }
-//     } else {
-//         $subject = "Contact Request";
-//     }
-
-//     $msg .= "<div style='display: block; margin-bottom: 10px;'><h4 style='display: inline;'>From:</h4><p style='display: inline;'> " . $_POST["FirstName"] . " " . $_POST["LastName"] . "</p></div>";
-//     $msg .= "<div style='display: block; margin-bottom: 10px;'><h4 style='display: inline;'>Email:</h4><p style='display: inline;'> " . $_POST["Email"] . "</p></div>";
-//     $msg .= "<div style='display: block; margin-bottom: 10px;'><h4 style='display: inline;'>Phone Number:</h4><p style='display: inline;'> " . (isset($_POST["PhoneNumber"]) ? $_POST["PhoneNumber"] : "") . "</p></div>";
-
-//     // Include the Message field
-//     $msg .= "<div style='display: block; margin-bottom: 10px;'><h4 style='display: inline;'>Message:</h4><p style='display: inline; margin: 0;'> " . $_POST["Message"] . "</p></div>";
-
-//     $headers = "From: ". $_POST["Email"] . "\r\n";
-//     $headers .= "MIME-Version: 1.0\r\n";
-//     $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-
-//     if (mail($to, $subject, $msg, $headers)) {
-//        $emailOutPut = "Email sent successfully!";
-//     } else {
-//         $emailOutPut = "Failed to send email.";
-//     }
-// }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="styles.css?<?php echo filemtime("styles.css") ?>">
-    <link rel="stylesheet" href="form.css?<?php echo filemtime("form.css") ?>">
-    <title>Home</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css?<?php echo filemtime('styles.css') ?>">
+  <link rel="icon" type="image/png" href="Images/black-logo.png">
+  <link rel="apple-touch-icon" href="Images/black-logo.png">
+  <meta property="og:title" content="Cooper's Floors — Quality Flooring &amp; Installation">
+  <meta property="og:description" content="Professional flooring installation in the Twin Cities. Carpet, luxury vinyl, and laminate.">
+  <meta property="og:image" content="Images/open-graph-image.png">
+  <meta property="og:type" content="website">
+  <title>Cooper's Floors — Quality Flooring &amp; Installation</title>
 </head>
 <body>
 
-    <nav>
-        <button class="hamburgerBtn" id="hamburgerBtn">|||</button>
-        <a class="headerLogo" href="index.php"><img class="headerLogo" src="Images/CoopersFloorsLogoBlack.PNG" alt="Cooper Floors Logo"></a>
-        <div class="navLinks" id="navLinks">
-            <button class="closeHamburgerBtn" id="closeHamburgerBtn">X</button>
-            <a href="index.php">Home</a>
-            <hr>
-            <a href="about.html">About</a>
-            <hr>
-            <p id="productBtn" class="productBtn">Products 
-                <img src="Images/dropDownArrow.png" alt="Drop Down Arrow" width="10" height="8">
-            </p>
-            <hr class="btnHr">
-                <div class="dropDownLinks" id="dropDownLinks">
-                    <a href="carpet.html">Carpet</a>
-                    <hr>
-                    <a href="luxuryVinyl.html">Luxury Vinyl</a>
-                    <hr>
-                    <a href="laminate.html">Laminate</a>
-                    <hr>
-                </div>
-            <a id="contactLink" class="contact" href="contact.html">Contact</a>
-            <hr>
-            <a href="tel: 763-786-9616" class="HamburgerphoneNumber" id="HamburgerphoneNumber">Phone: 763-786-9616</a>
-        </div>
-        <a href="tel: 763-786-9616" class="phoneNumber" id="phoneNumber">Phone: 763-786-9616</a>
-    </nav>
-       
-    <?php
-        // // Check if the emailOutPut is set and not empty
-        // if (isset($emailOutPut) && !empty($emailOutPut)) {
-        //     echo '<div id="emailOutPut" class="emailOutPut">' . $emailOutPut . '<button id="closeEmailOutput" class="closeEmailOutput">close</button></div>';
-
-        // } else {
-        //     // If emailOutPut is empty or not set, do not display the container
-        //     echo $emailOutPut;
-        // }
-    ?>
+<nav id="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.php"><img src="Images/cooper-floors-black-logo.png" alt="Cooper's Floors" class="nav-logo-img"></a>
+    <div class="nav-desktop-links">
+      <a href="index.php" class="nav-link active">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <button id="productBtn" class="nav-link">Flooring <svg id="chevIcon" class="nav-chev" width="11" height="7" viewBox="0 0 11 7" fill="none" aria-hidden="true"><path d="M1 1L5.5 6L10 1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <a href="contact.html" class="nav-link" id="contactLink">Contact</a>
+    </div>
+    <div class="nav-desktop-actions">
+      <a href="contact.html" class="nav-cta-btn">Get a Free Estimate →</a>
+      <a href="tel:7637869616" class="nav-phone-link">☎ 763-786-9616</a>
+    </div>
+    <div class="nav-mobile-actions">
+      <a href="tel:7637869616" class="nav-mobile-phone-btn">☎</a>
+      <button id="hamburgerBtn" class="nav-hamburger-btn">☰</button>
+    </div>
+  </div>
+  <div id="dropDownLinks" class="nav-mega">
+    <div id="megaOverlay" class="nav-mega-overlay"></div>
+    <div class="nav-mega-inner">
+      <div class="nav-mega-intro">
+        <div class="nav-mega-label">FLOORING PRODUCTS</div>
+        <div class="nav-mega-title">Quality floors for every space.</div>
+        <div class="nav-mega-desc">Explore our flooring options and find the perfect fit for your home or business.</div>
         
-    <header>
-        <img src="Images/homeHeader.png" alt="Header Image">
-        <div class="headerText">
-            <p>We offer free estimates <br>
-                 and design consultation</p>
-            <a href="freeEstimate.html"><button> Click Here</button></a>
-        </div>
-    </header>
+      </div>
+      <div class="nav-mega-cards">
+        <a href="carpet.html" class="nav-mega-card">
+          <div class="nav-mega-card-img" style="background-image:url(Images/coopers-floors-website-images/05-carpet-bedroom.png)"></div>
+          <div class="nav-mega-card-body"><div><div class="nav-mega-card-title">Carpet</div><div class="nav-mega-card-desc">Comfort meets durability.</div></div><div class="nav-mega-card-arrow">→</div></div>
+        </a>
+        <a href="luxuryVinyl.html" class="nav-mega-card">
+          <div class="nav-mega-card-img" style="background-image:url(Images/coopers-floors-website-images/04-kitchen.png)"></div>
+          <div class="nav-mega-card-body"><div><div class="nav-mega-card-title">Luxury Vinyl</div><div class="nav-mega-card-desc">Stylish. Waterproof. Versatile.</div></div><div class="nav-mega-card-arrow">→</div></div>
+        </a>
+        <a href="laminate.html" class="nav-mega-card">
+          <div class="nav-mega-card-img" style="background-image:url(Images/coopers-floors-website-images/09-dining-room.png)"></div>
+          <div class="nav-mega-card-body"><div><div class="nav-mega-card-title">Laminate</div><div class="nav-mega-card-desc">Beautiful looks. Everyday tough.</div></div><div class="nav-mega-card-arrow">→</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
 
-    <main>
-         <div class="commercialServices">
-            <p>We provide residential and commercial services</p>
-            <a href="residential&Commercial.html"><button>Learn More</button></a>
-         </div>
+<div id="mobileDrawer" class="mobile-drawer">
+  <div id="drawerOverlay" class="mobile-drawer-overlay"></div>
+  <aside class="mobile-drawer-inner">
+    <div class="mobile-drawer-header">
+      <a href="index.php" class="nav-logo"><img src="Images/cooper-floors-black-logo.png" alt="Cooper's Floors" class="nav-logo-img"></a>
+      <button id="closeDrawerBtn" class="mobile-drawer-close">✕</button>
+    </div>
+    <a href="index.php" class="mobile-nav-link">Home</a>
+    <a href="about.html" class="mobile-nav-link">About</a>
+    <div class="mobile-flooring-acc">
+      <button id="mobileAccBtn" class="mobile-acc-header">Flooring <svg id="mobileAccChev" class="nav-chev" width="11" height="7" viewBox="0 0 11 7" fill="none" aria-hidden="true"><path d="M1 1L5.5 6L10 1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div id="mobileAccContent" class="mobile-acc-content">
+        <a href="carpet.html" class="mobile-acc-link"><span class="mobile-acc-img" style="background-image:url(Images/coopers-floors-website-images/05-carpet-bedroom.png)"></span>Carpet</a>
+        <a href="luxuryVinyl.html" class="mobile-acc-link"><span class="mobile-acc-img" style="background-image:url(Images/coopers-floors-website-images/04-kitchen.png)"></span>Luxury Vinyl</a>
+        <a href="laminate.html" class="mobile-acc-link"><span class="mobile-acc-img" style="background-image:url(Images/coopers-floors-website-images/09-dining-room.png)"></span>Laminate</a>
+      </div>
+    </div>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <a href="tel:7637869616" class="mobile-phone-link">☎ 763-786-9616</a>
+    <a href="contact.html" class="mobile-cta-btn">Get a Free Estimate →</a>
+  </aside>
+</div>
 
-         <section class="flooringOptions flooringOption">
-            <div class="carpet hidden flooringOption">
-                <h2>Carpet</h2>
-                <a href="carpet.html"><button>Explore Carpet</button></a>
-            </div>
-            <div class="luxuryVinyl hidden flooringOption">
-                <h2>Luxury Vinyl</h2>
-                <a href="luxuryVinyl.html"><button>Explore Luxury Vinyl </button></a>
-            </div>
+<main>
 
-            <div class="laminate hidden flooringOption">
-                <h2>Laminate</h2>
-                <a href="laminate.html"><button>Explore Laminate </button></a>
-            </div>
-         </section>
+  <!-- Hero -->
+  <section class="page-hero hero-home" style="background-image:linear-gradient(90deg,#795B40cc 0%,#795B4066 55%,#795B4022 100%),url(Images/coopers-floors-website-images/01-hero-living-room.png)">
+    <div class="hero-headline">Beautiful Floors for Every Space</div>
+    <div class="hero-sub">Quality flooring. Expert installation. A home you'll love.</div>
+    <div class="hero-btns">
+      <a href="carpet.html" class="btn-dark">Explore Our Products →</a>
+      <a href="contact.html" class="btn-outline-white">Get a Free Estimate</a>
+    </div>
+    <svg class="wave-divider wave-bottom" viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0 44 C260 0 520 84 760 44 S1200 4 1440 44 L1440 80 L0 80Z" fill="#FCFAF6"/></svg>
+  </section>
 
-         <div class="customer-review-container">
-            <button class="backward" id="backward">&larr;</button>
-            <section class="customerReviews" id="customerReviews"></section>
-            <button class="forward" id="forward">&rarr;</button>
-         </div>
-         
+  <!-- Pillars -->
+  <div class="pillars-bar">
+    <div class="pillar"><div class="pillar-icon">⌂</div><div>Residential &amp; Commercial</div></div>
+    <div class="pillar"><div class="pillar-icon">◇</div><div>High-Quality Products</div></div>
+    <div class="pillar"><div class="pillar-icon">❖</div><div>Expert Installation</div></div>
+    <div class="pillar"><div class="pillar-icon">▤</div><div>Free Estimates &amp; Consultations</div></div>
+  </div>
 
-         <section>
-            <h2 class="homePageContactUsH2">Contact US</h2>
-            <div class="homeContactForm">
-            <form action="https://formspree.io/f/xbjvzzwz" method="POST">
-                <input type="hidden" name="_subject" value="New Email">
-                <input type="hidden" name="_next" value="https://yourdomain.co/thanks.html">
-                <div class="name">
-                    <div class="label">
-                        <label for="fname">First name*</label>
-                        <input type="text" name="FirstName" required>
-                    </div>
-                    <div class="label">
-                        <label for="fname">Last name*</label>
-                        <input type="text" name="LastName" required>
-                    </div>
-                    
-                </div>
-                <div class="contactInfo">
-                    <div class="label">
-                        <label for="fname">Email*</label>
-                        <input type="email" name="Email" required>
-                    </div>
-                    <div class="label">
-                        <label for="fname">Phone number*</label>
-                        <input type="tel" name="PhoneNumber" id="phoneNumberInput" required>
-                    </div>
-                
-                </div>
-                <div class="message">
-                    <div class="label">
-                        <label for="fname">Message*</label>
-                        <textarea class="userInput" name="Message" placeholder="How can we help you!"></textarea>
-                    </div>
-                </div>
-                <input class="sumbit" type="submit" value="Send">
-            </form>
+  <!-- About split -->
+  <div class="split-section bg-cream section-edge">
+    <div class="split-text">
+      <div class="section-eyebrow">FLOORING SOLUTIONS</div>
+      <div class="section-heading-lg">For Life's<br>Next Chapter</div>
+      <p class="section-body">At Cooper's Floors, we provide top-quality flooring and expert installation for homes and businesses across the area. From carpet to luxury vinyl and laminate, we're here to help you find the perfect fit for your space and style.</p>
+      <a href="about.html" class="btn-dark">Learn More About Us →</a>
+    </div>
+    <div class="split-img" style="background-image:url(Images/coopers-floors-website-images/04-kitchen.png)">
+      <svg class="wave-vert-left" viewBox="0 0 60 100" preserveAspectRatio="none"><path d="M0 0 L30 0 C52 22 8 42 30 62 S48 86 30 100 L0 100Z" fill="#F7F3EB"/></svg>
+    </div>
+  </div>
 
-            <iframe class="iframHomePage" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2810.4336203472362!2d-93.33038312379983!3d45.21879547107101!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b33d0730a78345%3A0xd2a1f9d17d483ff5!2s13640%20Crosstown%20Blvd%20NW%2C%20Andover%2C%20MN%2055304!5e0!3m2!1sen!2sus!4v1692465345032!5m2!1sen!2sus" width="600" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <!-- Products grid -->
+  <section class="section-pad bg-cream">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:clamp(22px,3vw,40px)">
+      <div class="section-heading">Our Flooring Products</div>
+    </div>
+    <div class="products-grid">
+      <a href="carpet.html" class="product-card">
+        <div class="product-card-img" style="background-image:url(Images/coopers-floors-website-images/05-carpet-bedroom.png)"></div>
+        <div class="product-card-body"><div><div class="product-card-title">Carpet</div><div class="product-card-desc">Comfort meets durability.</div></div><div class="product-card-arrow">→</div></div>
+      </a>
+      <a href="luxuryVinyl.html" class="product-card">
+        <div class="product-card-img" style="background-image:url(Images/coopers-floors-website-images/04-kitchen.png)"></div>
+        <div class="product-card-body"><div><div class="product-card-title">Luxury Vinyl</div><div class="product-card-desc">Stylish. Waterproof. Versatile.</div></div><div class="product-card-arrow">→</div></div>
+      </a>
+      <a href="laminate.html" class="product-card">
+        <div class="product-card-img" style="background-image:url(Images/coopers-floors-website-images/09-dining-room.png)"></div>
+        <div class="product-card-body"><div><div class="product-card-title">Laminate</div><div class="product-card-desc">Beautiful looks. Everyday tough.</div></div><div class="product-card-arrow">→</div></div>
+      </a>
+    </div>
+  </section>
 
-        </section>
-        <section class="aboutUsSection">
-            <div class="aboutUsContainer">
-            <img class="aboutUsImage hidden" src="Images/AboutUs.jpeg" alt="About Us Image">
-            <div class="aboutUsContent hidden">
-                <h1>We are the Cooper's</h1>
-                <p>Gary and Jan, originally from a South Dakota farm town,
-                    married and moved to Minnesota in 1962. 
-                    Gary began his career as a floor installer, 
-                    later transitioning to carpet buying and selling.
-                    The couple's business, initially run from home,
-                    expanded through various locations. Despite economic 
-                    challenges, they've maintained their business for 23 
-                    years. Alongside their entrepreneurial success, 
-                    they're active in their church and enjoy time with 
-                    their four daughters, 16 grandchildren, 
-                    and 9 great-grandchildren, leading a fulfilling 
-                    and vibrant life.  
-                </p>
-                <a href="about.html"><button>More About US</button></a>
-            </div> 
-        </div>
-        </section>
-    </main>
+  <!-- CTA banner -->
+  <section class="cta-banner" style="background:linear-gradient(90deg,#0E3528f2,#0E3528d0),url(Images/coopers-floors-website-images/10-flooring-samples.png) center/cover">
+    <div>
+      <div class="cta-banner-title">Let's Bring Your Vision to Life.</div>
+      <div class="cta-banner-sub">Whether you're updating your home or outfitting a commercial space, our team is here to help.</div>
+    </div>
+    <a href="contact.html" class="btn-light">Get a Free Estimate →</a>
+  </section>
 
-    
-    <footer>
-        <div class="footerLogo">
-            <img src="Images/CoopersFloorsLogoWhite.PNG" alt="Cooper Floors Logo">
-        </div>
-        <div class="footerContainer">
-            <div class="siteMap">
-               <h2>SiteMap</h2>
-               <div class="siteMapLinks">
-                <a href="index.php">Home</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-                <a href="freeEstimate.html">Free Estimate</a>
-                <a href="residential&Commercial.html">Residential & Commercial</a>
-                <a href="carpet.html">Carpet</a>
-                <a href="laminate.html">Laminate</a>
-                <a href="luxuryVinyl.html">Luxury Vinyl</a>
-               </div>
-            </div>
-            <div class="contactAdress">
-                <h2>Andover, MN</h2>
-                <a href="tel:763-786-9616" id="phoneNumber">PHONE: 763-786-9616</a>
-                <address>ADDRESS: 13640 Crosstown Blvd NW</address>
-                <a href="mailto:CoopersFloors@outlook.com">EMAIL: CoopersFloors@outlook.com</a>
-            </div>
-            <div class="hours">
-                <h2>Hours</h2>
-                <p>Monday-Friday <br><span>10:00AM - 5:00pm</span></p>
-                <p>Saturday <br><span>10:00 AM - 3:00PM</span></p>
-                <p>Sunday <br><span>Closed</span></p>
-            </div>
-        </div>
-        <div class="copySocial">
-            &copy; Cooper's Floors 
-            <!-- <a class="fa fa-facebook-square" aria-hidden="true"></a> -->
-        </div>
-    </footer>
+  <!-- Testimonials -->
+  <section class="testimonials-section">
+    <div class="testi-header">
+      <div class="testi-eyebrow">TESTIMONIALS</div>
+      <div class="testimonials-heading">What Our Customers Say</div>
+      <div class="testi-subtitle">Real experiences from homeowners across the Twin Cities.</div>
+    </div>
+    <div class="testi-carousel-wrap">
+      <button class="testi-nav-btn" id="backward">&#8249;</button>
+      <div class="testi-track-outer">
+        <div class="testi-track" id="testiTrack"></div>
+      </div>
+      <button class="testi-nav-btn" id="forward">&#8250;</button>
+    </div>
+    <div class="testi-dots" id="testiDots"></div>
+  </section>
 
-    <script src="index.js" type="module"></script>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-logo"><img src="Images/cooper-floors-logo-white.png" alt="Cooper's Floors" class="footer-logo-img"></div>
+      <p class="footer-tagline">Quality flooring and installation for homes and businesses across the twin cities area.</p>
+      <div class="footer-social"><span class="footer-social-icon">f</span><span class="footer-social-icon">◎</span></div>
+    </div>
+    <div><span class="footer-col-title">Quick Links</span><div class="footer-col"><a href="index.php">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a></div></div>
+    <div><span class="footer-col-title">Our Products</span><div class="footer-col"><a href="carpet.html">Carpet</a><a href="luxuryVinyl.html">Luxury Vinyl</a><a href="laminate.html">Laminate</a></div></div>
+    <div class="footer-contact-col"><span class="footer-col-title">Contact</span><a href="tel:7637869616">☎ 763-786-9616</a><a href="mailto:CoopersFloors@outlook.com">✉ CoopersFloors@outlook.com</a><span>⌖ 13640 Crosstown Blvd NW<br>&nbsp;&nbsp;&nbsp;Andover, MN 55304</span></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© <?php echo date('Y'); ?> Cooper's Floors. All rights reserved.</span>
+    <div class="footer-bottom-links"><span>Privacy Policy</span><span>Terms of Service</span></div>
+  </div>
+</footer>
+
+<script src="index.js" type="module"></script>
 </body>
 </html>

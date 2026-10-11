@@ -1,255 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="form.css">
-    <link rel="stylesheet" href="product.css">
-    <title>Carpet</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="Images/black-logo.png">
+  <link rel="apple-touch-icon" href="Images/black-logo.png">
+  <meta property="og:title" content="Carpet — Cooper's Floors">
+  <meta property="og:description" content="Professional flooring installation in the Twin Cities. Carpet, luxury vinyl, and laminate.">
+  <meta property="og:image" content="Images/open-graph-image.png">
+  <meta property="og:type" content="website">
+  <title>Carpet — Cooper's Floors</title>
 </head>
 <body>
-    <nav>
-        <button class="hamburgerBtn" id="hamburgerBtn">|||</button>
-        <a class="headerLogo" href="index.php"><img class="headerLogo" src="Images/CoopersFloorsLogoBlack.PNG" alt="Cooper Floors Logo"></a>
-        <div class="navLinks" id="navLinks">
-            <button class="closeHamburgerBtn" id="closeHamburgerBtn">X</button>
-            <a href="index.php">Home</a>
-            <hr>
-            <a href="about.html">About</a>
-            <hr>
-            <button id="productBtn" class="productBtn">Products 
-                <img src="Images/dropDownArrow.png" alt="Drop Down Arrow" width="10" height="8">
-            </button>
-            <hr class="btnHr">
-                <div class="dropDownLinks" id="dropDownLinks">
-                    <a href="carpet.html">Carpet</a>
-                    <hr>
-                    <a href="luxuryVinyl.html">Luxury Vinyl</a>
-                    <hr>
-                    <a href="laminate.html">Laminate</a>
-                    <hr>
-                </div>
-            <a id="contactLink" class="contact" href="contact.html">Contact</a>
-            <hr>
-            <a href="tel: 763-786-9616" class="HamburgerphoneNumber" id="HamburgerphoneNumber">Phone: 763-786-9616</a>
-        </div>
-        <a href="tel: 763-786-9616" class="phoneNumber" id="phoneNumber">Phone: 763-786-9616</a>
-    </nav>
 
-    <header>
-        <img src="Images/carpet/carpetHeader.png" alt="Carpet Header Image">
-        <div class="headerText">
-            <p>CARPET</p>
-        </div>
-    </header> 
+<nav id="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.php"><img src="Images/cooper-floors-black-logo.png" alt="Cooper's Floors" class="nav-logo-img"></a>
+    <div class="nav-desktop-links">
+      <a href="index.php" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <button id="productBtn" class="nav-link active">Flooring <svg id="chevIcon" class="nav-chev" width="11" height="7" viewBox="0 0 11 7" fill="none" aria-hidden="true"><path d="M1 1L5.5 6L10 1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <a href="contact.html" class="nav-link" id="contactLink">Contact</a>
+    </div>
+    <div class="nav-desktop-actions">
+      <a href="contact.html" class="nav-cta-btn">Get a Free Estimate →</a>
+      <a href="tel:7637869616" class="nav-phone-link">☎ 763-786-9616</a>
+    </div>
+    <div class="nav-mobile-actions">
+      <a href="tel:7637869616" class="nav-mobile-phone-btn">☎</a>
+      <button id="hamburgerBtn" class="nav-hamburger-btn">☰</button>
+    </div>
+  </div>
+  <div id="dropDownLinks" class="nav-mega">
+    <div id="megaOverlay" class="nav-mega-overlay"></div>
+    <div class="nav-mega-inner">
+      <div class="nav-mega-intro"><div class="nav-mega-label">FLOORING PRODUCTS</div><div class="nav-mega-title">Quality floors for every space.</div><div class="nav-mega-desc">Explore our flooring options and find the perfect fit for your home or business.</div></div>
+      <div class="nav-mega-cards">
+        <a href="carpet.html" class="nav-mega-card"><div class="nav-mega-card-img" style="background-image:url(Images/coopers-floors-website-images/05-carpet-bedroom.png)"></div><div class="nav-mega-card-body"><div><div class="nav-mega-card-title">Carpet</div><div class="nav-mega-card-desc">Comfort meets durability.</div></div><div class="nav-mega-card-arrow">→</div></div></a>
+        <a href="luxuryVinyl.html" class="nav-mega-card"><div class="nav-mega-card-img" style="background-image:url(Images/coopers-floors-website-images/04-kitchen.png)"></div><div class="nav-mega-card-body"><div><div class="nav-mega-card-title">Luxury Vinyl</div><div class="nav-mega-card-desc">Stylish. Waterproof. Versatile.</div></div><div class="nav-mega-card-arrow">→</div></div></a>
+        <a href="laminate.html" class="nav-mega-card"><div class="nav-mega-card-img" style="background-image:url(Images/coopers-floors-website-images/09-dining-room.png)"></div><div class="nav-mega-card-body"><div><div class="nav-mega-card-title">Laminate</div><div class="nav-mega-card-desc">Beautiful looks. Everyday tough.</div></div><div class="nav-mega-card-arrow">→</div></div></a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div id="mobileDrawer" class="mobile-drawer">
+  <div id="drawerOverlay" class="mobile-drawer-overlay"></div>
+  <aside class="mobile-drawer-inner">
+    <div class="mobile-drawer-header"><a href="index.php" class="nav-logo"><img src="Images/cooper-floors-black-logo.png" alt="Cooper's Floors" class="nav-logo-img"></a><button id="closeDrawerBtn" class="mobile-drawer-close">✕</button></div>
+    <a href="index.php" class="mobile-nav-link">Home</a><a href="about.html" class="mobile-nav-link">About</a>
+    <div class="mobile-flooring-acc"><button id="mobileAccBtn" class="mobile-acc-header">Flooring <svg id="mobileAccChev" class="nav-chev" width="11" height="7" viewBox="0 0 11 7" fill="none" aria-hidden="true"><path d="M1 1L5.5 6L10 1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div id="mobileAccContent" class="mobile-acc-content"><a href="carpet.html" class="mobile-acc-link"><span class="mobile-acc-img" style="background-image:url(Images/coopers-floors-website-images/05-carpet-bedroom.png)"></span>Carpet</a><a href="luxuryVinyl.html" class="mobile-acc-link"><span class="mobile-acc-img" style="background-image:url(Images/coopers-floors-website-images/04-kitchen.png)"></span>Luxury Vinyl</a><a href="laminate.html" class="mobile-acc-link"><span class="mobile-acc-img" style="background-image:url(Images/coopers-floors-website-images/09-dining-room.png)"></span>Laminate</a></div></div>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <a href="tel:7637869616" class="mobile-phone-link">☎ 763-786-9616</a>
+    <a href="contact.html" class="mobile-cta-btn">Get a Free Estimate →</a>
+  </aside>
+</div>
 
-    <div id="carpetModal" class="carpetModal"></div>
+<main>
+  <section class="page-hero hero-page" style="background-image:linear-gradient(90deg,#795B40cc 0%,#795B4066 55%,#795B4022 100%),url(Images/coopers-floors-website-images/06-carpet-closeup.png)">
+    <div style="font-family:'Newsreader',serif;font-size:clamp(38px,5.6vw,72px);line-height:1.04;max-width:620px">Carpet Flooring</div>
+    <p class="hero-sub" style="max-width:460px;color:rgba(255,255,255,.85)">Soft, durable, and made for real life — find the perfect carpet for your home.</p>
+    <svg class="wave-divider wave-bottom" viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0 44 C260 0 520 84 760 44 S1200 4 1440 44 L1440 80 L0 80Z" fill="#FCFAF6"/></svg>
+  </section>
 
-    <main>
-        <div class="carpetPageContainer">
-        <section class="intro">
-            <p>There's nothing quite like the sensation of soft, 
-                cozy carpets under your feet or the warm and inviting 
-                ambiance they project into a home.</p>
-        </section>     
-        <section class="carpetBenefits">
-            <h2>Carpet Benefits</h2>
-            <ul>
-                <li>
-                    Comes in various styles, patterns, and colors to match any interior design.
-                </li>
-                <li>
-                    Cushioned surface and improves insulation within your home, 
-                    absorbing sound and retaining warmth.
-                </li>
-                <li>
-                    Incredibly soft and comfortable underfoot and in a non-slip
-                     surface ideal for safety purposes – especially if you have kids, 
-                     pets, or elderly family members.
-                </li>
-                <li>
-                    It has a great lifespan to enjoy for a long time to come
-                </li>
-                <li>
-                    One of the most affordable flooring products and most are treated 
-                    with static, stain, soil, and water-resistant properties to handle daily 
-                    mishaps and heavy wear over time.
-                </li>
-                <li>
-                    With a regular care routine, carpet is incredibly easy to clean and maintain.
-                </li>
-            </ul>
-        </section> 
+  <!-- Intro split -->
+  <section class="section-pad-sm bg-cream two-col cols-11-1">
+    <div style="display:flex;flex-direction:column;gap:16px;align-items:flex-start">
+      <div class="section-heading">Comfort, Style<br>and Everyday Durability</div>
+      <p class="section-body">There's nothing quite like the comfort of soft, cozy carpet under your feet. Our wide selection of carpet styles, colors, and textures makes it easy to find the perfect fit for your home.</p>
+    </div>
+    <div class="col-img hidden" style="background-image:url(Images/coopers-floors-website-images/05-carpet-bedroom.png)"></div>
+  </section>
 
-        <div class="directions">
-        <p class="img-select-direction">Select an Image for more Info</p>
-        <p class="img-slide-direction">Slide to view Images</p>
-        </div>
+  <!-- Benefits -->
+  <section class="section-pad-sm bg-tan">
+    <div class="section-heading" style="margin-bottom:clamp(22px,3vw,40px)">Carpet Benefits</div>
+    <div class="benefits-grid">
+      <div class="benefit-item"><span class="benefit-icon">▦</span><span>Comes in a variety of styles, patterns, and colors.</span></div>
+      <div class="benefit-item"><span class="benefit-icon">☺</span><span>Great fit for bedrooms, living rooms and more.</span></div>
+      <div class="benefit-item"><span class="benefit-icon">◫</span><span>Cushioned surface and improves insulation.</span></div>
+      <div class="benefit-item"><span class="benefit-icon">◇</span><span>Affordable and treated for stain resistance.</span></div>
+      <div class="benefit-item"><span class="benefit-icon">♡</span><span>Incredibly soft and comfortable underfoot.</span></div>
+      <div class="benefit-item"><span class="benefit-icon">✓</span><span>Easy to clean and maintain.</span></div>
+    </div>
+  </section>
 
-        <section class="carpetMaterialsStyleTextures">
-            <div class="carpetMaterials">
-                <h2>Carpet Materials</h2>
-                <div class="carpetMaterialImg">
-                    <div class="nylon-polyester">
-                        <div class="nylon">
-                            <img id="nylon" src="Images/carpet/nylon.jpg" alt="Nylon Carpet Img">
-                            <h4>Nylon</h4>
-                        </div>
-                        <div class="polyester">
-                            <img id="polyester" src="Images/carpet/polyester.jpg" alt="Polyester Carpet Img">
-                            <h4>Polyester</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carpetStylesTextures">
-                <h2>Carpet Styles & Textures for Your Home</h2>
-                <p>Not only does carpet come in a variety of materials, 
-                    but it also is composed of various pile heights, patterns, 
-                    and textures to deliver optimal performance and beautiful 
-                    designs.</p>
-                <p>Depending on the room and your lifestyle, 
-                    you can choose from the following carpet styles:</p>
-                <div class="styleTextureImg">
-                    <div class="loop">
-                        <img id="loop" src="Images/carpet/loop.jpg" alt="Loop Carpet Img">
-                        <h4>Loop</h4>
-                    </div>
-                    
-                    <div class="cut">
-                        <img id="cut" src="Images/carpet/cut.jpg" alt="Cut Carpet Image">
-                        <h4>Cut</h4>
-                    </div>
+  <!-- Carpet Materials -->
+  <section class="section-pad-sm bg-cream">
+    <div class="section-eyebrow" style="color:#795B40;margin-bottom:14px">CARPET MATERIALS</div>
+    <div class="section-heading" style="margin-bottom:clamp(22px,3vw,40px)">Choose Your Material</div>
+    <div class="styles-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+      <div>
+        <div class="style-sample-img" style="background-image:url(Images/carpet/nylon.jpg);height:clamp(180px,20vw,260px)"></div>
+        <div class="style-sample-name">Nylon</div>
+        <div class="style-sample-desc">The most durable and resilient carpet fiber — ideal for high-traffic areas and families with pets or kids.</div>
+      </div>
+      <div>
+        <div class="style-sample-img" style="background-image:url(Images/carpet/polyester.jpg);height:clamp(180px,20vw,260px)"></div>
+        <div class="style-sample-name">Polyester</div>
+        <div class="style-sample-desc">Naturally stain-resistant with vibrant color options — a great value for bedrooms and lower-traffic spaces.</div>
+      </div>
+    </div>
+  </section>
 
-                    <div class="cut-loop">
-                        <img id="cut-loop" src="Images/carpet/cutLoop.jpg" alt="Cut-Loop Image">
-                        <h4>Cut-Loop</h4>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="howToChooseCarpet">
-            <h2>How to choose the perfect carpet material for your home</h2>
-            <p>In order to select the perfect carpet, you’ll want to 
-                consider the function of each room, and how you live in it.  
-                For example, an ideal kid’s bedroom offers a comfortable, 
-                calming vibe with soft textured carpets whose material can 
-                also withstand accidents and spills.  If that’s the case, 
-                consider kid-proof nylon carpets in a plush or Frieze style.</p>
-            <p>On the other hand, your entrance hallway is bound for heavy 
-                traffic, with muddy boots passing through daily.  You can 
-                still obtain a formal look with durable wool in a woven loop 
-                style, such as Berber, for a tough, soil-hiding carpet that 
-                lasts.  When choosing your ideal carpet, keep the following in 
-                mind to ensure long-lasting, quality carpet that you’ll love.</p>
-            <ul>
-                <li>Design preference</li>
-                <li>Performance needs</li>
-                <li>Desired texture</li>
-            </ul>
-        </section>
-        <section class="carpetCare">
-            <h2>Carpet care & maintenance</h2>
-            <p>With a <span>simple maintenance routine</span>,
-                 your carpet fibers will keep fresh for decades.  
-                 No matter your carpet material, here are a few tips for 
-                 carpet maintenance:</p>
-            <p><span>Vacuum your carpets regularly</span> (once a week) 
-                to remove daily dirt and debris build-up.</p>
-            <p><span>Clean up any spills or accidents</span> with a damp cloth and 
-                manufacturer-recommended floor cleaner for your specific 
-                carpet type.  Cleaning systems will remove the oily, sticky 
-                soil that vacuums can’t take out, and will help keep your 
-                carpet looking great over time.  Always refer to your warranty
-                guide or ask your local flooring professionals before using any 
-                harsh chemicals to clean your carpet.</p>
-            <p><span>Preventative maintenance</span> – walk-off mats placed at doorways 
-                prevent a majority of staining and soiling.</p>
-            <p><span>Hot water extraction or steam cleaning</span> removes oils and 
-                particulates that accelerate soiling.  Hot water extracting 
-                is recommended every 12 – 18 months, depending on the traffic 
-                in your home.</p>
-            <p>We <span>recommend a yearly carpet fiber refresh</span> with a professional 
-                carpet cleaning.  This lifts heavier stains for a renewed look 
-                and feel.</p>
-        </section>
-        <section class="findIdealCarpetContainer">
-            <div class="findIdealCarpetText">
-            <h2>Find your ideal carpet for your home at Cooper Floors</h2>
-            <p>
-                Shopping for new carpets can feel overwhelming. 
-                If you are interested in upgrading your home with 
-                carpet but need some help understanding your options, 
-                Cooper Floors is here to help! 
-            </p>
-            <p>
-                We will break down each type of carpet material,
-                 explain the unique advantages of carpet, and discuss 
-                 how to select your ideal carpet material for any lifestyle. 
-                 From stain-resistant nylon carpet piles to rugged and 
-                 beautiful wool, we've got the inside scoop on everything you 
-                 need to know about carpet material!
-            </p>
-            </div>
-            <div class="findIdealCarpetStoreImg">
-                <img src="Images/storeImg.png" alt="Cooper Floors Store">
-            </div>
-        </div>
-        </section>
-        <section class="brandsCarried">
-            <h2>Brands We Carry</h2>
-            <div class="brandLogos">
-                <img src="Images/brands/Shaw.png" alt="Shaw">
-                <img src="Images/brands/Mohawk.png" alt="Mohawk">
-                <img src="Images/brands/DreamWeaver.png" alt="Dream Weaver">
-                <img src="Images/brands/kraus.webp" alt="kraus">
-                <img src="Images/brands/Phenix.jpg" alt="Phenix">
-            </div>
-        </section>
-        </div> 
-    </main>
-    
+  <!-- Carpet Styles -->
+  <section class="section-pad-sm bg-tan">
+    <div class="section-eyebrow" style="color:#795B40;margin-bottom:14px">CARPET STYLES & TEXTURES</div>
+    <div class="section-heading" style="margin-bottom:14px">Styles &amp; Textures for Your Home</div>
+    <p class="section-body" style="max-width:640px;margin-bottom:clamp(26px,3.5vw,48px)">Not only does carpet come in a variety of materials, but it also is composed of various pile heights, patterns, and textures to deliver optimal performance and beautiful designs. Depending on the room and your lifestyle, you can choose from the following carpet styles:</p>
+    <div class="styles-grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+      <div>
+        <div class="style-sample-img" style="background-image:url(Images/carpet/loop.jpg);height:clamp(160px,18vw,240px)"></div>
+        <div class="style-sample-name">Loop</div>
+        <div class="style-sample-desc">Yarn loops are left uncut, creating a durable, textured surface great for high-traffic areas.</div>
+      </div>
+      <div>
+        <div class="style-sample-img" style="background-image:url(Images/carpet/cut.jpg);height:clamp(160px,18vw,240px)"></div>
+        <div class="style-sample-name">Cut</div>
+        <div class="style-sample-desc">Loops are cut for a soft, plush finish — perfect for bedrooms and living rooms.</div>
+      </div>
+      <div>
+        <div class="style-sample-img" style="background-image:url(Images/carpet/cutLoop.jpg);height:clamp(160px,18vw,240px)"></div>
+        <div class="style-sample-name">Cut-Loop</div>
+        <div class="style-sample-desc">A combination of cut and looped fibers that creates visual patterns and added texture.</div>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <div class="footerLogo">
-            <img src="Images/CoopersFloorsLogoWhite.PNG" alt="Cooper Floors Logo">
-        </div>
-        <div class="footerContainer">
-            <div class="siteMap">
-               <h2>SiteMap</h2>
-               <div class="siteMapLinks">
-                <a href="index.php">Home</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-                <a href="freeEstimate.html">Free Estimate</a>
-                <a href="residential&Commercial.html">Residential & Commercial</a>
-                <a href="carpet.html">Carpet</a>
-                <a href="laminate.html">Laminate</a>
-                <a href="luxuryVinyl.html">Luxury Vinyl</a>
-               </div>
-            </div>
-            <div class="contactAdress">
-                <h2>Andover, MN</h2>
-                <a href="tel:763-786-9616" id="phoneNumber">PHONE: 763-786-9616</a>
-                <address>ADDRESS: 13640 Crosstown Blvd NW</address>
-                <a href="mailto:CoopersFloors@outlook.com">EMAIL: CoopersFloors@outlook.com</a>
-            </div>
-            <div class="hours">
-                <h2>Hours</h2>
-                <p>Monday-Friday <br><span>10:00AM - 5:00pm</span></p>
-                <p>Saturday <br><span>10:00 AM - 3:00PM</span></p>
-                <p>Sunday <br><span>Closed</span></p>
-            </div>
-        </div>
-        <div class="copySocial">
-            &copy; Cooper's Floors 
-            <!-- <a class="fa fa-facebook-square" aria-hidden="true"></a> -->
-        </div>
-    </footer>
+  <!-- Brands -->
+  <section class="brands-section bg-cream">
+    <div class="brands-eyebrow">QUALITY BRANDS</div>
+    <div class="brands-heading">Brands We Carry</div>
+    <div class="brands-sub">Trusted manufacturers. Lasting quality.</div>
+    <div class="brand-logos">
+      <div class="brand-logo-card"><img src="Images/brands/mannington.png" alt="Mannington"></div>
+      <div class="brand-logo-card"><img src="Images/brands/Southwind.jpg" alt="Southwind"></div>
+      <div class="brand-logo-card"><img src="Images/brands/Shaw.png" alt="Shaw"></div>
+      <div class="brand-logo-card"><img src="Images/brands/engineeredFloors.png" alt="Engineered Floors"></div>
+    </div>
+  </section>
 
-    <script src="index.js" type="module"></script>
+  <!-- CTA -->
+  <section class="cta-banner" style="background:linear-gradient(90deg,#795B40ee,#795B4077),url(Images/coopers-floors-website-images/05-carpet-bedroom.png) center/cover">
+    <div style="max-width:480px">
+      <div style="font-family:'Newsreader',serif;font-size:clamp(30px,3.8vw,46px);line-height:1.08">Ready to Add Comfort<br>to Your Home?</div>
+      <div class="cta-banner-sub">We'll help you find the perfect carpet for your space and budget.</div>
+    </div>
+    <a href="contact.html" class="btn-light">Get a Free Estimate →</a>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><div class="footer-brand-logo"><img src="Images/cooper-floors-logo-white.png" alt="Cooper's Floors" class="footer-logo-img"></div><p class="footer-tagline">Quality flooring and installation for homes and businesses across the twin cities area.</p><div class="footer-social"><span class="footer-social-icon">f</span><span class="footer-social-icon">◎</span></div></div>
+    <div><span class="footer-col-title">Quick Links</span><div class="footer-col"><a href="index.php">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a></div></div>
+    <div><span class="footer-col-title">Our Products</span><div class="footer-col"><a href="carpet.html">Carpet</a><a href="luxuryVinyl.html">Luxury Vinyl</a><a href="laminate.html">Laminate</a></div></div>
+    <div class="footer-contact-col"><span class="footer-col-title">Contact</span><a href="tel:7637869616">☎ 763-786-9616</a><a href="mailto:CoopersFloors@outlook.com">✉ CoopersFloors@outlook.com</a><span>⌖ 13640 Crosstown Blvd NW<br>&nbsp;&nbsp;&nbsp;Andover, MN 55304</span></div>
+  </div>
+  <div class="footer-bottom"><span>© <span class="copyright-year">2026</span> Cooper's Floors. All rights reserved.</span><div class="footer-bottom-links"><span>Privacy Policy</span><span>Terms of Service</span></div></div>
+</footer>
+<script src="index.js" type="module"></script>
 </body>
 </html>

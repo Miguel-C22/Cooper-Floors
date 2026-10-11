@@ -7,7 +7,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="form.css">
-    <title>Estimate&Consultation</title>
+    <link rel="icon" type="image/png" href="Images/black-logo.png">
+    <link rel="apple-touch-icon" href="Images/black-logo.png">
+    <meta property="og:title" content="Free Estimate — Cooper's Floors">
+    <meta property="og:description" content="Professional flooring installation in the Twin Cities. Carpet, luxury vinyl, and laminate.">
+    <meta property="og:image" content="Images/open-graph-image.png">
+    <meta property="og:type" content="website">
+    <title>Estimate &amp; Consultation — Cooper's Floors</title>
 </head>
 <body>
     <nav>
@@ -47,8 +53,11 @@
     <main class="estimatePageContainer">
            <img id="desktopImg"src="Images/freeEstimate.jpg" alt="">
         <section class="estimatePage">
-            <form action="https://formspree.io/f/xbjvzzwz" method="POST" class="estimatetUsPageForm">
-                <input type="hidden" name="formType" value="Estimation/Consultation">
+            <div id="freeEstimateSuccess" class="form-success-msg" hidden>Thanks for reaching out! We've received your request and will be in touch soon.</div>
+            <div id="freeEstimateError" class="form-error-msg" hidden>Something went wrong. Please try again or call us at <a href="tel:7637869616">763-786-9616</a>.</div>
+            <form id="freeEstimateForm" class="estimatetUsPageForm">
+                <input type="hidden" name="formType" value="legacy-estimate">
+                <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
                     <div class="select">
                         <label>Estimate OR Consultation</label>
                         <select class="selectChoice" name="EstimateOrConsultation">
@@ -126,5 +135,43 @@
     </footer>
 
     <script src="index.js" type="module"></script>
+    <script>
+      (function () {
+        var form    = document.getElementById('freeEstimateForm');
+        var success = document.getElementById('freeEstimateSuccess');
+        var error   = document.getElementById('freeEstimateError');
+        if (!form) return;
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          if (!form.checkValidity()) { form.reportValidity(); return; }
+
+          var btn  = form.querySelector('[type="submit"]');
+          var orig = btn ? btn.value : '';
+          if (btn) { btn.disabled = true; btn.value = 'Sending…'; }
+          if (success) success.hidden = true;
+          if (error)   error.hidden   = true;
+
+          var payload = {};
+          new FormData(form).forEach(function (v, k) { payload[k] = v; });
+
+          fetch('/send-email.php', {
+            method:  'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body:    JSON.stringify(payload)
+          })
+          .then(function (res) {
+            if (!res.ok) throw new Error();
+            form.reset();
+            form.style.display = 'none';
+            if (success) success.hidden = false;
+          })
+          .catch(function () {
+            if (error) error.hidden = false;
+            if (btn) { btn.disabled = false; btn.value = orig; }
+          });
+        });
+      })();
+    </script>
 </body>
 </html>

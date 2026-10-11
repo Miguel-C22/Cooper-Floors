@@ -1,126 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="styles.css">
-        <title>About</title>
-    </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="Images/black-logo.png">
+  <link rel="apple-touch-icon" href="Images/black-logo.png">
+  <meta property="og:title" content="About — Cooper's Floors">
+  <meta property="og:description" content="Professional flooring installation in the Twin Cities. Carpet, luxury vinyl, and laminate.">
+  <meta property="og:image" content="Images/open-graph-image.png">
+  <meta property="og:type" content="website">
+  <title>About — Cooper's Floors</title>
+</head>
 <body>
-    <nav>
-        <button class="hamburgerBtn" id="hamburgerBtn">|||</button>
-        <a class="headerLogo" href="index.php"><img class="headerLogo" src="Images/CoopersFloorsLogoBlack.PNG" alt="Cooper Floors Logo"></a>
-        <div class="navLinks" id="navLinks">
-            <button class="closeHamburgerBtn" id="closeHamburgerBtn">X</button>
-            <a href="index.php">Home</a>
-            <hr>
-            <a href="about.html">About</a>
-            <hr>
-            <button id="productBtn" class="productBtn">Products 
-                <img src="Images/dropDownArrow.png" alt="Drop Down Arrow" width="10" height="8">
-            </button>
-            <hr class="btnHr">
-                <div class="dropDownLinks" id="dropDownLinks">
-                    <a href="carpet.html">Carpet</a>
-                    <hr>
-                    <a href="luxuryVinyl.html">Luxury Vinyl</a>
-                    <hr>
-                    <a href="laminate.html">Laminate</a>
-                    <hr>
-                </div>
-            <a id="contactLink" class="contact" href="contact.html">Contact</a>
-            <hr>
-            <a href="tel: 763-786-9616" class="HamburgerphoneNumber" id="HamburgerphoneNumber">Phone: 763-786-9616</a>
-        </div>
-        <a href="tel: 763-786-9616" class="phoneNumber" id="phoneNumber">Phone: 763-786-9616</a>
-    </nav>
 
-    <main class="aboutUsPage">
-        <div class="aboutContainer">
-            <div class="headerText">
-                <p class="ourStory">Our Story</p>
-                <span class="aboutSpan"></span>
-            </div>
-            <img class="aboutImg hidden" src="Images/AboutUs.jpeg" alt="About image">
-        <div class="aboutText hidden ">
-            <p class="firstLetter">
-                Both hailing from a rural farm town in South Dakota, 
-                Gary and Jan's journey together began when they tied the knot and later 
-                set their sights on Minnesota in 1962.
-            </p>
-            <br>
-            <p>
-                Upon their arrival, Gary swiftly secured a position as a floor installer.
-                 Over time, he serendipitously transitioned into the world of carpet 
-                 buying and selling, starting with humble beginnings from their home 
-                 and eventually establishing a small storefront in Spring Lake Park. 
-                 Through a few relocations, their enterprise flourished, mirroring the
-                  growth of their own family.
-            </p>
-            <br>
-            <p>
-                Amidst challenges and economic fluctuations, 
-                Gary and Jan have remained steadfast in nurturing the business 
-                they painstakingly built from scratch all those years ago.
-            </p>
-            <br>
-            <p>
-                Today, Gary and Jan celebrate 23 successful years of entrepreneurial 
-                endeavor. Their engagement in their church and the joy of spending 
-                quality time with their expansive and ever-expanding family is a 
-                testament to their fulfilled lives. Beyond business, their days are 
-                a whirlwind of activity – from cherishing moments with their four 
-                daughters, to delighting in the presence of their 16 grandchildren 
-                and 9 great-grandchildren.
-            </p>
-        </div>   
-        </div>
-    </main>
-
-    <div class="signature hidden">
-        <img src="Images/Garry.png" alt="signature">
-        <img src="Images/Jan.png" alt="signature">
+<nav id="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.php"><img src="Images/cooper-floors-black-logo.png" alt="Cooper's Floors" class="nav-logo-img"></a>
+    <div class="nav-desktop-links">
+      <a href="index.php" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link active">About</a>
+      <button id="productBtn" class="nav-link">Flooring <svg id="chevIcon" class="nav-chev" width="11" height="7" viewBox="0 0 11 7" fill="none" aria-hidden="true"><path d="M1 1L5.5 6L10 1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <a href="contact.html" class="nav-link" id="contactLink">Contact</a>
     </div>
-    
-    <footer>
-        <div class="footerLogo">
-            <img src="Images/CoopersFloorsLogoWhite.PNG" alt="Cooper Floors Logo">
+    <div class="nav-desktop-actions">
+      <a href="contact.html" class="nav-cta-btn">Get a Free Estimate →</a>
+      <a href="tel:7637869616" class="nav-phone-link">☎ 763-786-9616</a>
+    </div>
+    <div class="nav-mobile-actions">
+      <a href="tel:7637869616" class="nav-mobile-phone-btn">☎</a>
+      <button id="hamburgerBtn" class="nav-hamburger-btn">☰</button>
+    </div>
+  </div>
+  <div id="dropDownLinks" class="nav-mega">
+    <div id="megaOverlay" class="nav-mega-overlay"></div>
+    <div class="nav-mega-inner">
+      <div class="nav-mega-intro"><div class="nav-mega-label">FLOORING PRODUCTS</div><div class="nav-mega-title">Quality floors for every space.</div><div class="nav-mega-desc">Explore our flooring options and find the perfect fit for your home or business.</div></div>
+      <div class="nav-mega-cards">
+        <a href="carpet.html" class="nav-mega-card"><div class="nav-mega-card-img" style="background-image:url(Images/coopers-floors-website-images/05-carpet-bedroom.png)"></div><div class="nav-mega-card-body"><div><div class="nav-mega-card-title">Carpet</div><div class="nav-mega-card-desc">Comfort meets durability.</div></div><div class="nav-mega-card-arrow">→</div></div></a>
+        <a href="luxuryVinyl.html" class="nav-mega-card"><div class="nav-mega-card-img" style="background-image:url(Images/coopers-floors-website-images/04-kitchen.png)"></div><div class="nav-mega-card-body"><div><div class="nav-mega-card-title">Luxury Vinyl</div><div class="nav-mega-card-desc">Stylish. Waterproof. Versatile.</div></div><div class="nav-mega-card-arrow">→</div></div></a>
+        <a href="laminate.html" class="nav-mega-card"><div class="nav-mega-card-img" style="background-image:url(Images/coopers-floors-website-images/09-dining-room.png)"></div><div class="nav-mega-card-body"><div><div class="nav-mega-card-title">Laminate</div><div class="nav-mega-card-desc">Beautiful looks. Everyday tough.</div></div><div class="nav-mega-card-arrow">→</div></div></a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div id="mobileDrawer" class="mobile-drawer">
+  <div id="drawerOverlay" class="mobile-drawer-overlay"></div>
+  <aside class="mobile-drawer-inner">
+    <div class="mobile-drawer-header"><a href="index.php" class="nav-logo"><img src="Images/cooper-floors-black-logo.png" alt="Cooper's Floors" class="nav-logo-img"></a><button id="closeDrawerBtn" class="mobile-drawer-close">✕</button></div>
+    <a href="index.php" class="mobile-nav-link">Home</a><a href="about.html" class="mobile-nav-link">About</a>
+    <div class="mobile-flooring-acc"><button id="mobileAccBtn" class="mobile-acc-header">Flooring <svg id="mobileAccChev" class="nav-chev" width="11" height="7" viewBox="0 0 11 7" fill="none" aria-hidden="true"><path d="M1 1L5.5 6L10 1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div id="mobileAccContent" class="mobile-acc-content"><a href="carpet.html" class="mobile-acc-link"><span class="mobile-acc-img" style="background-image:url(Images/coopers-floors-website-images/05-carpet-bedroom.png)"></span>Carpet</a><a href="luxuryVinyl.html" class="mobile-acc-link"><span class="mobile-acc-img" style="background-image:url(Images/coopers-floors-website-images/04-kitchen.png)"></span>Luxury Vinyl</a><a href="laminate.html" class="mobile-acc-link"><span class="mobile-acc-img" style="background-image:url(Images/coopers-floors-website-images/09-dining-room.png)"></span>Laminate</a></div></div>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <a href="tel:7637869616" class="mobile-phone-link">☎ 763-786-9616</a>
+    <a href="contact.html" class="mobile-cta-btn">Get a Free Estimate →</a>
+  </aside>
+</div>
+
+<main>
+  <!-- Hero -->
+  <section class="page-hero hero-page" style="background-image:linear-gradient(90deg,#795B40cc 0%,#795B4066 55%,#795B4022 100%),url(Images/coopers-floors-website-images/08-entryway.png)">
+    <div style="font-family:'Newsreader',serif;font-size:clamp(38px,5.6vw,72px);line-height:1.04;max-width:620px">A Family Business Built on Lasting Value</div>
+    <p class="hero-sub" style="max-width:500px;color:rgba(255,255,255,.85)">What started in our home has grown into a trusted flooring business, built on hard work, family, and a commitment to doing things the right way.</p>
+    <svg class="wave-divider wave-bottom" viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0 44 C260 0 520 84 760 44 S1200 4 1440 44 L1440 80 L0 80Z" fill="#FCFAF6"/></svg>
+  </section>
+
+  <!-- Story section -->
+  <section class="about-story-section">
+    <div class="about-story-left">
+      <div class="about-story-eyebrow">OUR STORY</div>
+      <div style="font-family:'Newsreader',serif;font-size:clamp(38px,4.8vw,62px);line-height:1.08;color:#1C1C18">A Journey That<br>Started at Home</div>
+      <p style="font-size:clamp(13px,1.2vw,15px);line-height:1.85;color:#686159">Both hailing from a rural farm town in South Dakota, Gary and Jan's journey together began when they tied the knot and later set their sights on Minnesota in 1962.</p>
+      <p style="font-size:clamp(13px,1.2vw,15px);line-height:1.85;color:#686159">Upon their arrival, Gary swiftly secured a position as a floor installer. Over time, he transitioned into the world of carpet buying and selling, starting from their home and eventually establishing a storefront in Spring Lake Park.</p>
+      <p style="font-size:clamp(13px,1.2vw,15px);line-height:1.85;color:#686159">What started as a shared vision has grown into Cooper's Floors — a business built on quality products, honest service, and lasting relationships with our customers.</p>
+    </div>
+    <div class="about-story-center">
+      <div class="about-photo-stack">
+        <div class="about-portrait-wrap">
+          <img src="Images/AboutUs.jpeg" alt="Gary and Jan Cooper" class="about-photo-main-img">
         </div>
-        <div class="footerContainer">
-            <div class="siteMap">
-               <h2>SiteMap</h2>
-               <div class="siteMapLinks">
-                <a href="index.php">Home</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-                <a href="freeEstimate.html">Free Estimate</a>
-                <a href="residential&Commercial.html">Residential & Commercial</a>
-                <a href="carpet.html">Carpet</a>
-                <a href="laminate.html">Laminate</a>
-                <a href="luxuryVinyl.html">Luxury Vinyl</a>
-               </div>
-            </div>
-            <div class="contactAdress">
-                <h2>Andover, MN</h2>
-                <a href="tel:763-786-9616" id="phoneNumber">PHONE: 763-786-9616</a>
-                <address>ADDRESS: 13640 Crosstown Blvd NW</address>
-                <a href="mailto:CoopersFloors@outlook.com">EMAIL: CoopersFloors@outlook.com</a>
-            </div>
-            <div class="hours">
-                <h2>Hours</h2>
-                <p>Monday-Friday <br><span>10:00AM - 5:00pm</span></p>
-                <p>Saturday <br><span>10:00 AM - 3:00PM</span></p>
-                <p>Sunday <br><span>Closed</span></p>
-            </div>
+        <div class="about-photo-secondary-wrap">
+          <img src="Images/storeImg.png" alt="Cooper's Floors first storefront in Spring Lake Park" class="about-photo-secondary-img">
         </div>
-        <div class="copySocial">
-            &copy; Cooper's Floors 
-            <!-- <a class="fa fa-facebook-square" aria-hidden="true"></a> -->
+        <div class="about-photo-caption">
+          <svg class="about-caption-arrow" viewBox="0 0 60 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M52 44 C38 42 16 12 6 8" stroke="#9A7457" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M6 8 L4 16 M6 8 L14 12" stroke="#9A7457" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="about-caption-text">Our storefront<br>in Spring Lake Park</span>
         </div>
-    </footer>
-    <script src="index.js" type="module"></script>
-    
+      </div>
+    </div>
+  </section>
+
+  <!-- Values section -->
+  <section class="about-values-section" style="background:linear-gradient(90deg,#795B40cc 0%,#795B4066 55%,#795B4022 100%),url(Images/coopers-floors-website-images/04-kitchen.png) center/cover">
+    <div class="about-values-header">
+      <div>
+        <div class="about-values-eyebrow">OUR VALUES</div>
+        <div class="about-values-heading">The Same Values<br>We Started With</div>
+      </div>
+      <div class="about-values-desc">We believe a successful business is built on more than just beautiful floors — it's built on the values we live by every day.</div>
+    </div>
+    <div class="about-values-cards">
+      <div class="about-value-card">
+        <div class="about-value-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="18" cy="8" r="2.5"/><path d="M21 21v-1.5a3.5 3.5 0 0 0-2.5-3.35"/></svg></div>
+        <div class="about-value-title">Family</div>
+        <div class="about-value-body">A family business at heart, treating every customer like one of our own.</div>
+      </div>
+      <div class="about-value-card">
+        <div class="about-value-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 6v6c0 5.5 3.5 10.7 8 12 4.5-1.3 8-6.5 8-12V6L12 2z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+        <div class="about-value-title">Integrity</div>
+        <div class="about-value-body">Honest work, clear communication, and doing what's right.</div>
+      </div>
+      <div class="about-value-card">
+        <div class="about-value-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        <div class="about-value-title">Craftsmanship</div>
+        <div class="about-value-body">Quality work that's built to last and made with care.</div>
+      </div>
+      <div class="about-value-card">
+        <div class="about-value-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <div class="about-value-title">Customer Focus</div>
+        <div class="about-value-body">Your home, your vision, and your satisfaction matter most.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Commitment section -->
+  <section class="about-commitment-section">
+    <div>
+      <div class="about-commitment-eyebrow">OUR COMMITMENT</div>
+      <div class="about-commitment-heading">Still a Family Business.<br>Still the Same Values.</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:20px;align-items:flex-start">
+      <p style="font-size:15px;line-height:1.75;color:#686159;max-width:480px">Whether it's a single room or an entire home, we're committed to delivering beautiful results, reliable service, and an experience you can feel good about.</p>
+      <a href="contact.html" class="btn-dark">Get a Free Estimate →</a>
+    </div>
+  </section>
+
+  <!-- Founders section -->
+  <section class="about-founders-section">
+    <div class="about-founder">
+      <div class="about-founder-cursive">Gary Cooper</div>
+      <div class="about-founder-label">GARY COOPER</div>
+    </div>
+    <div class="about-founders-divider"></div>
+    <div class="about-founder">
+      <div class="about-founder-cursive">Jan Cooper</div>
+      <div class="about-founder-label">JAN COOPER</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><div class="footer-brand-logo"><img src="Images/cooper-floors-logo-white.png" alt="Cooper's Floors" class="footer-logo-img"></div><p class="footer-tagline">Quality flooring and installation for homes and businesses across the twin cities area.</p><div class="footer-social"><span class="footer-social-icon">f</span><span class="footer-social-icon">◎</span></div></div>
+    <div><span class="footer-col-title">Quick Links</span><div class="footer-col"><a href="index.php">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a></div></div>
+    <div><span class="footer-col-title">Our Products</span><div class="footer-col"><a href="carpet.html">Carpet</a><a href="luxuryVinyl.html">Luxury Vinyl</a><a href="laminate.html">Laminate</a></div></div>
+    <div class="footer-contact-col"><span class="footer-col-title">Contact</span><a href="tel:7637869616">☎ 763-786-9616</a><a href="mailto:CoopersFloors@outlook.com">✉ CoopersFloors@outlook.com</a><span>⌖ 13640 Crosstown Blvd NW<br>&nbsp;&nbsp;&nbsp;Andover, MN 55304</span></div>
+  </div>
+  <div class="footer-bottom"><span>© <span class="copyright-year">2026</span> Cooper's Floors. All rights reserved.</span><div class="footer-bottom-links"><span>Privacy Policy</span><span>Terms of Service</span></div></div>
+</footer>
+<script src="index.js" type="module"></script>
 </body>
 </html>

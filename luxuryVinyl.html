@@ -1,223 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="form.css">
-    <link rel="stylesheet" href="product.css">
-    <title>LuxuryVinyl</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="Images/black-logo.png">
+  <link rel="apple-touch-icon" href="Images/black-logo.png">
+  <meta property="og:title" content="Luxury Vinyl — Cooper's Floors">
+  <meta property="og:description" content="Professional flooring installation in the Twin Cities. Carpet, luxury vinyl, and laminate.">
+  <meta property="og:image" content="Images/open-graph-image.png">
+  <meta property="og:type" content="website">
+  <title>Luxury Vinyl — Cooper's Floors</title>
 </head>
 <body>
-    <nav>
-        <button class="hamburgerBtn" id="hamburgerBtn">|||</button>
-        <a class="headerLogo" href="index.php"><img class="headerLogo" src="Images/CoopersFloorsLogoBlack.PNG" alt="Cooper Floors Logo"></a>
-        <div class="navLinks" id="navLinks">
-            <button class="closeHamburgerBtn" id="closeHamburgerBtn">X</button>
-            <a href="index.php">Home</a>
-            <hr>
-            <a href="about.html">About</a>
-            <hr>
-            <button id="productBtn" class="productBtn">Products 
-                <img src="Images/dropDownArrow.png" alt="Drop Down Arrow" width="10" height="8">
-            </button>
-            <hr class="btnHr">
-                <div class="dropDownLinks" id="dropDownLinks">
-                    <a href="carpet.html">Carpet</a>
-                    <hr>
-                    <a href="luxuryVinyl.html">Luxury Vinyl</a>
-                    <hr>
-                    <a href="laminate.html">Laminate</a>
-                    <hr>
-                </div>
-            <a id="contactLink" class="contact" href="contact.html">Contact</a>
-            <hr>
-            <a href="tel: 763-786-9616" class="HamburgerphoneNumber" id="HamburgerphoneNumber">Phone: 763-786-9616</a>
-        </div>
-        <a href="tel: 763-786-9616" class="phoneNumber" id="phoneNumber">Phone: 763-786-9616</a>
-    </nav>
 
-    <header>
-        <img src="Images/vinyl/vinylHeader.png" alt="Header Image">
-        <div class="headerText">
-            <p>LUXURY VINYL</p>
-        </div>
-    </header> 
+<nav id="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.php"><img src="Images/cooper-floors-black-logo.png" alt="Cooper's Floors" class="nav-logo-img"></a>
+    <div class="nav-desktop-links">
+      <a href="index.php" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <button id="productBtn" class="nav-link active">Flooring <svg id="chevIcon" class="nav-chev" width="11" height="7" viewBox="0 0 11 7" fill="none" aria-hidden="true"><path d="M1 1L5.5 6L10 1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <a href="contact.html" class="nav-link" id="contactLink">Contact</a>
+    </div>
+    <div class="nav-desktop-actions">
+      <a href="contact.html" class="nav-cta-btn">Get a Free Estimate →</a>
+      <a href="tel:7637869616" class="nav-phone-link">☎ 763-786-9616</a>
+    </div>
+    <div class="nav-mobile-actions">
+      <a href="tel:7637869616" class="nav-mobile-phone-btn">☎</a>
+      <button id="hamburgerBtn" class="nav-hamburger-btn">☰</button>
+    </div>
+  </div>
+  <div id="dropDownLinks" class="nav-mega">
+    <div id="megaOverlay" class="nav-mega-overlay"></div>
+    <div class="nav-mega-inner">
+      <div class="nav-mega-intro"><div class="nav-mega-label">FLOORING PRODUCTS</div><div class="nav-mega-title">Quality floors for every space.</div><div class="nav-mega-desc">Explore our flooring options and find the perfect fit for your home or business.</div></div>
+      <div class="nav-mega-cards">
+        <a href="carpet.html" class="nav-mega-card"><div class="nav-mega-card-img" style="background-image:url(Images/coopers-floors-website-images/05-carpet-bedroom.png)"></div><div class="nav-mega-card-body"><div><div class="nav-mega-card-title">Carpet</div><div class="nav-mega-card-desc">Comfort meets durability.</div></div><div class="nav-mega-card-arrow">→</div></div></a>
+        <a href="luxuryVinyl.html" class="nav-mega-card"><div class="nav-mega-card-img" style="background-image:url(Images/coopers-floors-website-images/04-kitchen.png)"></div><div class="nav-mega-card-body"><div><div class="nav-mega-card-title">Luxury Vinyl</div><div class="nav-mega-card-desc">Stylish. Waterproof. Versatile.</div></div><div class="nav-mega-card-arrow">→</div></div></a>
+        <a href="laminate.html" class="nav-mega-card"><div class="nav-mega-card-img" style="background-image:url(Images/coopers-floors-website-images/09-dining-room.png)"></div><div class="nav-mega-card-body"><div><div class="nav-mega-card-title">Laminate</div><div class="nav-mega-card-desc">Beautiful looks. Everyday tough.</div></div><div class="nav-mega-card-arrow">→</div></div></a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div id="mobileDrawer" class="mobile-drawer">
+  <div id="drawerOverlay" class="mobile-drawer-overlay"></div>
+  <aside class="mobile-drawer-inner">
+    <div class="mobile-drawer-header"><a href="index.php" class="nav-logo"><img src="Images/cooper-floors-black-logo.png" alt="Cooper's Floors" class="nav-logo-img"></a><button id="closeDrawerBtn" class="mobile-drawer-close">✕</button></div>
+    <a href="index.php" class="mobile-nav-link">Home</a><a href="about.html" class="mobile-nav-link">About</a>
+    <div class="mobile-flooring-acc"><button id="mobileAccBtn" class="mobile-acc-header">Flooring <svg id="mobileAccChev" class="nav-chev" width="11" height="7" viewBox="0 0 11 7" fill="none" aria-hidden="true"><path d="M1 1L5.5 6L10 1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div id="mobileAccContent" class="mobile-acc-content"><a href="carpet.html" class="mobile-acc-link"><span class="mobile-acc-img" style="background-image:url(Images/coopers-floors-website-images/05-carpet-bedroom.png)"></span>Carpet</a><a href="luxuryVinyl.html" class="mobile-acc-link"><span class="mobile-acc-img" style="background-image:url(Images/coopers-floors-website-images/04-kitchen.png)"></span>Luxury Vinyl</a><a href="laminate.html" class="mobile-acc-link"><span class="mobile-acc-img" style="background-image:url(Images/coopers-floors-website-images/09-dining-room.png)"></span>Laminate</a></div></div>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <a href="tel:7637869616" class="mobile-phone-link">☎ 763-786-9616</a>
+    <a href="contact.html" class="mobile-cta-btn">Get a Free Estimate →</a>
+  </aside>
+</div>
 
-    <main>
-        <div class="vinylPageContainer">
-        <section class="intro vinylintro">
-            <p>Luxury Vinyl offers diverse realistic visuals and sizes, 
-                catering to various tastes including hardwood, geometric, 
-                and stone looks, making it highly versatile. A great option for 
-                active households with kids and pets, it's waterproof, durable, 
-                easy to maintain, and resistant to scratches. Notably, 
-                it provides an affordable way to achieve a nearly perfect 
-                hardwood appearance.</p>
-        </section>  
-        <section class="whatsVinyl">
-            <div class="whatsVinylInfo">
-                <h2>What is Luxury Vinyl Flooring?</h2>
-                <img src="Images/vinyl/pvc-vynil.png" 
-                alt="What is Luxury Vinyl image.
-                layer one uv layer.
-                layer two wear layer.
-                layer three decorative paper.
-                layer four glass fiber layer.
-                layer five base layer. 
-                layer six balance layer.
-                ">
-                <p>At its heart, plank vinyl floor, also called luxury vinyl 
-                    plank (LVP) or luxury vinyl floor (LVF), is simply vinyl 
-                    flooring that comes in long, narrow strips rather than the 
-                    traditional square tile shapes. </p>
-                <p>But structurally this is a different product. Sheet vinyl 
-                    is generally flexible vinyl with a printed top layer covered
-                     by a clear wear layer, while vinyl plank flooring is a 
-                     multi-ply product that features four layers:</p>
-                <div class="whatsVinylOl">
-                    <ol>
-                        <li>A topmost layer of aluminum oxide, designed to 
-                        prevent light scratching and scuffs</li>
-                        <li>A clear film layer that protects against more severe 
-                        ripping and tearing</li>
-                        <li>A design layer that provides the photo-realistic look of
-                        wood or stone</li>
-                        <li>A backing layer made of strong rigid vinyl, 
-                        comprising almost 90 percent of the total thickness of 
-                        luxury vinyl tile.</li>
-                    </ol>
-                </div>
-            </div>
-            <div class="vinylFact">
-                <p>Luxury vinyl is therefore almost five times thicker 
-                than traditional sheet vinyl, allowing it to be semi-rigid. 
-                Rather than being rolled out over the floor and glued down,
-                luxury vinyl planks snap together.</p>
-            </div>
-        </section>  
-        <section class="vinylUse">
-            <div class="vinylBenefits">
-                <h2>Benefits of Luxury Vinyl Floors</h2>
-                <ul>
-                  <li>Fully waterproof</li> 
-                  <li>One of the easiest floors to maintain</li> 
-                  <li>Scratch and stain resistant</li> 
-                  <li>Cost effective</li> 
-                  <li>Hundreds of colors and patterns</li> 
-                  <li>Looks and feels like real wood</li> 
-                  <li>Comfortable on your feet and carries the added benefit 
-                    of both temperature and sound insulation</li> 
-                  <li>Great value for the investment</li> 
-                  <li>Has a life expectancy of around 20 years</li>  
-                </ul>
-            </div>
-            <div class="vinylSelectInstallation">
-                <div class="vinylSelect">
-                    <h2>Benefits of Luxury Vinyl Floors</h2>
-                    <div class="vinylSelectInfo">
-                        <div class="vinylSelectInfoText">
-                        <p>Understanding the different types of luxury 
-                            vinyl available and the benefits each bring 
-                            are key factors when choosing your vinyl flooring.</p>
-                        <p>When selecting luxury vinyl think about your 
-                            lifestyle and the level of activity in the room 
-                            the flooring will be installed. </p>
-                        </div>
-                        <div class="vinylSelectInfoImg">
-                            <img src="Images/vinyl/vinylSelect.png" alt=" vinyl image">
-                        </div>
-                    </div>
-                </div>
-                <div class="vinylInstallation">
-                    <h2>Benefits of Luxury Vinyl Floors</h2>
-                    <div>
-                        <p>Ease of installation is a key advantage of vinyl 
-                            plank flooring, which uses a click-lock system in 
-                            which the edges and ends of the planks snap 
-                            together.  This flooring is generally installed as 
-                            a floating floor.</p>
-                        <img src="Images/vinyl/vinylInstallation.png" alt="vinyl image">
-                    </div>
-                </div>
-            </div>
-        </section>
-        
+<main>
+  <!-- Hero -->
+  <section class="page-hero hero-page" style="background-image:linear-gradient(90deg,#795B40cc 0%,#795B4066 55%,#795B4022 100%),url(Images/vinyl/vinylHeader.png)">
+    <div class="section-eyebrow" style="color:rgba(255,255,255,.65);margin-bottom:12px">LUXURY VINYL</div>
+    <div style="font-family:'Newsreader',serif;font-size:clamp(38px,5.6vw,72px);line-height:1.04;max-width:620px">Luxury Vinyl<br>Flooring</div>
+    <p class="hero-sub" style="max-width:460px;color:rgba(255,255,255,.85)">Stylish, waterproof, and built for real life — the perfect flooring for any room in your home.</p>
+    <svg class="wave-divider wave-bottom" viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0 44 C260 0 520 84 760 44 S1200 4 1440 44 L1440 80 L0 80Z" fill="#FCFAF6"/></svg>
+  </section>
 
+  <!-- Intro -->
+  <section class="section-pad-sm bg-cream two-col cols-13-1">
+    <div style="display:flex;flex-direction:column;gap:18px;align-items:flex-start">
+      <p class="section-body">Luxury vinyl flooring offers diverse, realistic visuals in a wide range of sizes — from classic hardwood looks to geometric and stone designs. It's the ideal choice for active households with kids and pets: fully waterproof, scratch-resistant, easy to maintain, and an affordable way to achieve the look of real wood.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center">
+        <a href="contact.html" class="btn-dark">Get a Free Estimate →</a>
+        <a href="#what-is-lvp" style="font-size:13px;color:#686159">– Learn More ↓</a>
+      </div>
+    </div>
+    <div class="col-img hidden" style="background-image:url(Images/coopers-floors-website-images/04-kitchen.png);min-height:clamp(220px,28vw,360px)"></div>
+  </section>
 
+  <!-- What is LVP? -->
+  <section id="what-is-lvp" class="section-pad-sm bg-tan two-col cols-1-1">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div class="section-eyebrow" style="color:#795B40">WHAT IS LVP?</div>
+      <div class="section-heading">Luxury Vinyl Plank —<br>Built Different</div>
+      <p class="section-body">Luxury vinyl plank (LVP) is a multi-layer product that goes far beyond traditional sheet vinyl. It's semi-rigid, nearly five times thicker than standard sheet vinyl, and snaps together without glue — making it one of the easiest floors to install.</p>
+      <p class="section-body">Each plank is built with a scratch-resistant aluminum oxide top coat, a clear protective film, a photo-realistic design layer, and a strong rigid vinyl core — all working together to deliver beauty that holds up to real life.</p>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center">
+      <img src="Images/vinyl/pvc-vynil.png" alt="Luxury vinyl plank layer diagram — UV layer, wear layer, decorative paper, glass fiber layer, base layer, balance layer" style="max-width:100%;width:100%;display:block">
+    </div>
+  </section>
 
+  <!-- Benefits -->
+  <section class="section-pad-sm bg-cream">
+    <div class="section-heading" style="margin-bottom:clamp(22px,3vw,40px)">Why Choose Luxury Vinyl?</div>
+    <div class="benefits-grid">
+      <div class="benefit-item"><span class="benefit-icon">◔</span><span>Fully waterproof — worry-free in any room</span></div>
+      <div class="benefit-item"><span class="benefit-icon">✎</span><span>Scratch and stain resistant</span></div>
+      <div class="benefit-item"><span class="benefit-icon">▣</span><span>Looks and feels like real hardwood</span></div>
+      <div class="benefit-item"><span class="benefit-icon">⌂</span><span>Comfortable underfoot with sound &amp; temperature insulation</span></div>
+      <div class="benefit-item"><span class="benefit-icon">☺</span><span>One of the easiest floors to clean and maintain</span></div>
+      <div class="benefit-item"><span class="benefit-icon">▥</span><span>Hundreds of colors, patterns, and sizes</span></div>
+      <div class="benefit-item"><span class="benefit-icon">◇</span><span>Affordable — great value for the investment</span></div>
+      <div class="benefit-item"><span class="benefit-icon">♡</span><span>Life expectancy of around 20 years</span></div>
+      <div class="benefit-item"><span class="benefit-icon">▦</span><span>Perfect for kids, pets, and high-traffic areas</span></div>
+    </div>
+  </section>
 
+  <!-- Choosing Your Vinyl -->
+  <section class="section-pad-sm bg-tan two-col cols-1-1">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div class="section-eyebrow" style="color:#795B40">FINDING THE RIGHT FIT</div>
+      <div class="section-heading">Choosing the Right Luxury Vinyl for Your Space</div>
+      <p class="section-body">Understanding the different types of luxury vinyl available is key when making your decision. Think about your lifestyle and the level of activity in the room where it will be installed — from quiet bedrooms to busy entryways, there's a product built for it.</p>
+      <p class="section-body">Our team will walk you through your options and help you find the style, thickness, and finish that's right for your home or business.</p>
+      <a href="contact.html" class="btn-dark">Get a Free Estimate →</a>
+    </div>
+    <div class="col-img hidden" style="background-image:url(Images/vinyl/vinylSelect.webp);min-height:clamp(260px,30vw,420px)"></div>
+  </section>
 
+  <!-- Installation -->
+  <section class="section-pad-sm bg-cream two-col cols-1-1">
+    <div class="col-img hidden" style="background-image:url(Images/vinyl/vinylInstallation.jpg);min-height:clamp(260px,30vw,420px)"></div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div class="section-eyebrow" style="color:#795B40">INSTALLATION</div>
+      <div class="section-heading">Easy Click-Lock Installation</div>
+      <p class="section-body">One of the biggest advantages of luxury vinyl plank is how it goes in. Using a click-lock system, the edges and ends of each plank snap together cleanly — no glue, no mess. The result is a floating floor that's installed faster and can be replaced section by section if ever needed.</p>
+      <a href="contact.html" class="btn-dark">Talk to Our Team →</a>
+    </div>
+  </section>
 
-        <section class="findIdealCarpetContainer">
-            <div class="findIdealCarpetText">
-            <h2>Find Your Ideal luxury vinyl for Your Home at Cooper Floors</h2>
-            <p>
-                Shopping for new luxury vinyl can feel overwhelming. 
-                If you are interested in upgrading your home with 
-                luxury vinyl but need some help understanding your options, 
-                Cooper Floors is here to help! 
-            </p>
-            </div>
-            <div class="findIdealCarpetStoreImg">
-                <img src="Images/storeImg.png" alt="Cooper floors store">
-            </div>
-        </div>
-        </section>
-        <section class="brandsCarried">
-            <h2>Brands We Carry</h2>
-            <div class="brandLogos">
-                <img src="Images/brands/Shaw.png" alt="">
-                <img src="Images/brands/COREtec.png" alt="">
-                <img src="Images/brands/engineeredFloors.png" alt="">
-                <img src="Images/brands/Southwind.jpg" alt="">
-                <img src="Images/brands/Rigid-Core.jpg" alt="">
-                <img src="Images/brands/gravity.jpg" alt="">
-                <img src="Images/brands/NovaFloor.webp" alt="">
-            </div>
-        </section>
-        </div> 
-    </main>
-    
-    <footer>
-        <div class="footerLogo">
-            <img src="Images/CoopersFloorsLogoWhite.PNG" alt="Cooper Floors Logo">
-        </div>
-        <div class="footerContainer">
-            <div class="siteMap">
-               <h2>SiteMap</h2>
-               <div class="siteMapLinks">
-                <a href="index.php">Home</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-                <a href="freeEstimate.html">Free Estimate</a>
-                <a href="residential&Commercial.html">Residential & Commercial</a>
-                <a href="carpet.html">Carpet</a>
-                <a href="laminate.html">Laminate</a>
-                <a href="luxuryVinyl.html">Luxury Vinyl</a>
-               </div>
-            </div>
-            <div class="contactAdress">
-                <h2>Andover, MN</h2>
-                <a href="tel:763-786-9616" id="phoneNumber">PHONE: 763-786-9616</a>
-                <address>ADDRESS: 13640 Crosstown Blvd NW</address>
-                <a href="mailto:CoopersFloors@outlook.com">EMAIL: CoopersFloors@outlook.com</a>
-            </div>
-            <div class="hours">
-                <h2>Hours</h2>
-                <p>Monday-Friday <br><span>10:00AM - 5:00pm</span></p>
-                <p>Saturday <br><span>10:00 AM - 3:00PM</span></p>
-                <p>Sunday <br><span>Closed</span></p>
-            </div>
-        </div>
-        <div class="copySocial">
-            &copy; Cooper's Floors 
-            <!-- <a class="fa fa-facebook-square" aria-hidden="true"></a> -->
-        </div>
-    </footer>
+  <!-- Brands -->
+  <section class="brands-section bg-tan">
+    <div class="brands-eyebrow">QUALITY BRANDS</div>
+    <div class="brands-heading">Brands We Carry</div>
+    <div class="brands-sub">Trusted manufacturers. Lasting quality.</div>
+    <div class="brand-logos">
+      <div class="brand-logo-card"><img src="Images/brands/Shaw.png" alt="Shaw"></div>
+      <div class="brand-logo-card"><img src="Images/brands/COREtec.png" alt="COREtec"></div>
+      <div class="brand-logo-card"><img src="Images/brands/engineeredFloors.png" alt="Engineered Floors"></div>
+      <div class="brand-logo-card"><img src="Images/brands/Southwind.jpg" alt="Southwind"></div>
+      <div class="brand-logo-card"><img src="Images/brands/Rigid-Core.jpg" alt="Rigid Core"></div>
+      <div class="brand-logo-card"><img src="Images/brands/gravity.jpg" alt="Gravity"></div>
+      <div class="brand-logo-card"><img src="Images/brands/NovaFloor.webp" alt="Nova Floor"></div>
+    </div>
+  </section>
 
-    <script src="index.js" type="module"></script>
+  <!-- Bottom CTA -->
+  <section class="cta-banner" style="background:linear-gradient(90deg,#795B40ee,#795B4077),url(Images/coopers-floors-website-images/04-kitchen.png) center/cover">
+    <div style="max-width:460px">
+      <div style="font-family:'Newsreader',serif;font-size:clamp(30px,3.8vw,46px);line-height:1.08">Let's Find the Right<br>Floor for Your Space.</div>
+      <div class="cta-banner-sub">Our team is here to help you choose the perfect luxury vinyl for your home or business.</div>
+    </div>
+    <a href="contact.html" class="btn-light">Get a Free Estimate →</a>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><div class="footer-brand-logo"><img src="Images/cooper-floors-logo-white.png" alt="Cooper's Floors" class="footer-logo-img"></div><p class="footer-tagline">Quality flooring and installation for homes and businesses across the twin cities area.</p><div class="footer-social"><span class="footer-social-icon">f</span><span class="footer-social-icon">◎</span></div></div>
+    <div><span class="footer-col-title">Quick Links</span><div class="footer-col"><a href="index.php">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a></div></div>
+    <div><span class="footer-col-title">Our Products</span><div class="footer-col"><a href="carpet.html">Carpet</a><a href="luxuryVinyl.html">Luxury Vinyl</a><a href="laminate.html">Laminate</a></div></div>
+    <div class="footer-contact-col"><span class="footer-col-title">Contact</span><a href="tel:7637869616">☎ 763-786-9616</a><a href="mailto:CoopersFloors@outlook.com">✉ CoopersFloors@outlook.com</a><span>⌖ 13640 Crosstown Blvd NW<br>&nbsp;&nbsp;&nbsp;Andover, MN 55304</span></div>
+  </div>
+  <div class="footer-bottom"><span>© <span class="copyright-year">2026</span> Cooper's Floors. All rights reserved.</span><div class="footer-bottom-links"><span>Privacy Policy</span><span>Terms of Service</span></div></div>
+</footer>
+<script src="index.js" type="module"></script>
 </body>
 </html>
