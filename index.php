@@ -28,10 +28,10 @@
     </div>
     <div class="nav-desktop-actions">
       <a href="contact.html" class="nav-cta-btn">Get a Free Estimate →</a>
-      <a href="tel:7637869616" class="nav-phone-link">☎ 763-786-9616</a>
+      <a href="tel:7637869616" class="nav-phone-link"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12.7a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 763-786-9616</a>
     </div>
     <div class="nav-mobile-actions">
-      <a href="tel:7637869616" class="nav-mobile-phone-btn">☎</a>
+      <a href="tel:7637869616" class="nav-mobile-phone-btn" aria-label="Call us"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12.7a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
       <button id="hamburgerBtn" class="nav-hamburger-btn">☰</button>
     </div>
   </div>
@@ -80,7 +80,7 @@
       </div>
     </div>
     <a href="contact.html" class="mobile-nav-link">Contact</a>
-    <a href="tel:7637869616" class="mobile-phone-link">☎ 763-786-9616</a>
+    <a href="tel:7637869616" class="mobile-phone-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12.7a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 763-786-9616</a>
     <a href="contact.html" class="mobile-cta-btn">Get a Free Estimate →</a>
   </aside>
 </div>
@@ -92,7 +92,7 @@
     <div class="hero-headline">Beautiful Floors for Every Space</div>
     <div class="hero-sub">Quality flooring. Expert installation. A home you'll love.</div>
     <div class="hero-btns">
-      <a href="carpet.html" class="btn-dark">Explore Our Products →</a>
+      <a href="#flooring-products" class="btn-dark">Explore Our Products →</a>
       <a href="contact.html" class="btn-outline-white">Get a Free Estimate</a>
     </div>
     <svg class="wave-divider wave-bottom" viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0 44 C260 0 520 84 760 44 S1200 4 1440 44 L1440 80 L0 80Z" fill="#FCFAF6"/></svg>
@@ -120,7 +120,7 @@
   </div>
 
   <!-- Products grid -->
-  <section class="section-pad bg-cream">
+  <section id="flooring-products" class="section-pad bg-cream">
     <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:clamp(22px,3vw,40px)">
       <div class="section-heading">Our Flooring Products</div>
     </div>
@@ -153,8 +153,7 @@
   <section class="testimonials-section">
     <div class="testi-header">
       <div class="testi-eyebrow">TESTIMONIALS</div>
-      <div class="testimonials-heading">What Our Customers Say</div>
-      <div class="testi-subtitle">Real experiences from homeowners across the Twin Cities.</div>
+      <div class="testimonials-heading"> Real experiences from homeowners and businesses across the Twin Cities.</div>
     </div>
     <div class="testi-carousel-wrap">
       <button class="testi-nav-btn" id="backward">&#8249;</button>
@@ -168,23 +167,35 @@
 
 </main>
 
+<div id="reviewModal" class="review-modal" role="dialog" aria-modal="true" aria-label="Full review">
+  <div class="review-modal-backdrop"></div>
+  <div class="review-modal-box">
+    <button class="review-modal-close" aria-label="Close">✕</button>
+    <div class="review-modal-quote">"</div>
+    <p class="review-modal-text"></p>
+    <hr class="review-modal-divider">
+    <div class="review-modal-name"></div>
+    <div class="review-modal-stars">★★★★★</div>
+  </div>
+</div>
+
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
       <div class="footer-brand-logo"><img src="Images/cooper-floors-logo-white.png" alt="Cooper's Floors" class="footer-logo-img"></div>
       <p class="footer-tagline">Quality flooring and installation for homes and businesses across the twin cities area.</p>
-      <div class="footer-social"><span class="footer-social-icon">f</span><span class="footer-social-icon">◎</span></div>
+
     </div>
     <div><span class="footer-col-title">Quick Links</span><div class="footer-col"><a href="index.php">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a></div></div>
     <div><span class="footer-col-title">Our Products</span><div class="footer-col"><a href="carpet.html">Carpet</a><a href="luxuryVinyl.html">Luxury Vinyl</a><a href="laminate.html">Laminate</a></div></div>
-    <div class="footer-contact-col"><span class="footer-col-title">Contact</span><a href="tel:7637869616">☎ 763-786-9616</a><a href="mailto:CoopersFloors@outlook.com">✉ CoopersFloors@outlook.com</a><span>⌖ 13640 Crosstown Blvd NW<br>&nbsp;&nbsp;&nbsp;Andover, MN 55304</span></div>
+    <div class="footer-contact-col"><span class="footer-col-title">Contact</span><a href="tel:7637869616"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12.7a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 763-786-9616</a><a href="mailto:CoopersFloors@outlook.com"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> CoopersFloors@outlook.com</a><span>⌖ 13640 Crosstown Blvd NW<br>&nbsp;&nbsp;&nbsp;Andover, MN 55304</span></div>
   </div>
   <div class="footer-bottom">
     <span>© <?php echo date('Y'); ?> Cooper's Floors. All rights reserved.</span>
-    <div class="footer-bottom-links"><span>Privacy Policy</span><span>Terms of Service</span></div>
+
   </div>
 </footer>
 
-<script src="index.js" type="module"></script>
+<script src="index.js?<?php echo filemtime('index.js') ?>" type="module"></script>
 </body>
 </html>

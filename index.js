@@ -140,7 +140,7 @@ document.querySelectorAll('.hidden').forEach((el) => observer.observe(el));
   ['.benefits-grid', '.brand-logos', '.about-values-cards', '.styles-grid', '.nav-mega-cards'].forEach(sel => {
     document.querySelectorAll(sel).forEach(grid => {
       Array.from(grid.children).forEach((child, i) => {
-        child.dataset.srDelay = i * 80;
+        child.dataset.srDelay = i * 100;
       });
     });
   });
@@ -152,7 +152,7 @@ document.querySelectorAll('.hidden').forEach((el) => observer.observe(el));
       setTimeout(() => entry.target.classList.add('sr-visible'), delay);
       srObserver.unobserve(entry.target);
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 
   document.querySelectorAll(selectors).forEach(el => {
     el.classList.add('sr');
@@ -165,14 +165,55 @@ if (testiTrack && reviews) {
   const shuffled = [...reviews].sort(() => Math.random() - 0.5);
   let idx = 0;
 
-  testiTrack.innerHTML = shuffled.map(r => `
+  testiTrack.innerHTML = shuffled.map((r, i) => {
+    const full = r.review.replace(/\s+/g, ' ').trim();
+    const short = full.length > 150 ? full.slice(0, 150).trimEnd() + '…' : full;
+    const needsMore = full.length > 150;
+    return `
     <div class="testi-card">
-      <div class="testi-quote-mark">“</div>
-      <p class="testi-text">${r.review.replace(/\s+/g, ' ').trim()}</p>
+      <div class="testi-quote-mark">&#x201C;</div>
+      <p class="testi-text">${short}</p>
+      ${needsMore ? `<button class="testi-read-more" data-idx="${i}">Read more</button>` : ''}
       <hr class="testi-divider">
       <div class="testi-name">${r.name}</div>
       <div class="testi-stars">★★★★★</div>
-    </div>`).join('');
+    </div>`;
+  }).join('');
+
+  const reviewModal     = document.getElementById('reviewModal');
+  const modalText       = reviewModal && reviewModal.querySelector('.review-modal-text');
+  const modalName       = reviewModal && reviewModal.querySelector('.review-modal-name');
+  const modalClose      = reviewModal && reviewModal.querySelector('.review-modal-close');
+  const modalBackdrop   = reviewModal && reviewModal.querySelector('.review-modal-backdrop');
+
+  function openReviewModal(idx) {
+    if (!reviewModal) return;
+    const r = shuffled[idx];
+    modalText.textContent = r.review.replace(/\s+/g, ' ').trim();
+    modalName.textContent = r.name;
+    reviewModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeReviewModal() {
+    if (!reviewModal) return;
+    reviewModal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  testiTrack.addEventListener('click', e => {
+    const btn = e.target.closest('.testi-read-more');
+    if (btn) openReviewModal(Number(btn.dataset.idx));
+  });
+  if (modalClose)   modalClose.addEventListener('click', closeReviewModal);
+  if (modalBackdrop) modalBackdrop.addEventListener('click', closeReviewModal);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeReviewModal(); });
+
+  function updateDots() {
+    if (!testiDots) return;
+    testiDots.querySelectorAll('.testi-dot').forEach((d, i) =>
+      d.classList.toggle('active', i === idx)
+    );
+  }
 
   if (testiDots) {
     testiDots.innerHTML = shuffled.map((_, i) =>
@@ -183,34 +224,41 @@ if (testiTrack && reviews) {
     );
   }
 
-  function updatePosition() {
-    const outer = testiTrack.parentElement;
-    const card  = testiTrack.querySelector('.testi-card');
-    if (!card) return;
-    const outerW = outer.offsetWidth;
-    const cardW  = card.offsetWidth;
-    const margin = 12;
-    const step   = cardW + margin * 2;
-    const offset = (outerW - cardW) / 2 - margin - idx * step;
-    testiTrack.style.transform = `translateX(${offset}px)`;
-    if (testiDots) {
-      testiDots.querySelectorAll('.testi-dot').forEach((d, i) =>
-        d.classList.toggle('active', i === idx)
-      );
-    }
+  function cardW() {
+    return testiTrack.querySelector('.testi-card')?.offsetWidth || 0;
   }
 
-  function goTo(i) { idx = i; updatePosition(); }
+  function goTo(i) {
+    idx = i;
+    const w = cardW();
+    if (w) testiTrack.scrollTo({ left: i * w, behavior: 'smooth' });
+    updateDots();
+  }
   function slideForward()  { goTo(idx < shuffled.length - 1 ? idx + 1 : 0); }
   function slideBackward() { goTo(idx > 0 ? idx - 1 : shuffled.length - 1); }
+
+  // Keep idx in sync when user swipes manually
+  let scrollTimer;
+  testiTrack.addEventListener('scroll', () => {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => {
+      const w = cardW() || 1;
+      const newIdx = Math.round(testiTrack.scrollLeft / w);
+      if (newIdx !== idx) { idx = newIdx; updateDots(); }
+    }, 80);
+  }, { passive: true });
 
   const forwardBtn  = document.getElementById('forward');
   const backwardBtn = document.getElementById('backward');
   if (forwardBtn)  forwardBtn.addEventListener('click', slideForward);
   if (backwardBtn) backwardBtn.addEventListener('click', slideBackward);
 
-  window.addEventListener('resize', updatePosition);
-  requestAnimationFrame(updatePosition);
+  // Re-snap on resize so the active card stays aligned
+  window.addEventListener('resize', () => {
+    const w = cardW();
+    if (w) testiTrack.scrollLeft = idx * w;
+  });
+
   setInterval(slideForward, 25000);
 }
 

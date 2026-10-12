@@ -276,21 +276,30 @@ $confirmText = "Hi $firstName,\n\nThanks for reaching out to Cooper's Floors. We
 
 // ── 11. Resend API helper ─────────────────────────────────────────────────────
 function sendResend(string $key, array $payload): bool {
-    $ch = curl_init('https://api.resend.com/emails');
-    curl_setopt_array($ch, [
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_POST           => true,
-        CURLOPT_POSTFIELDS     => json_encode($payload),
-        CURLOPT_HTTPHEADER     => [
-            'Authorization: Bearer ' . $key,
-            'Content-Type: application/json',
+    $options = [
+        'http' => [
+            'method'        => 'POST',
+            'header'        => [
+                'Authorization: Bearer ' . $key,
+                'Content-Type: application/json',
+            ],
+            'content'       => json_encode($payload),
+            'timeout'       => 15,
+            'ignore_errors' => true,
         ],
-        CURLOPT_TIMEOUT        => 15,
-        CURLOPT_SSL_VERIFYPEER => true,
-    ]);
-    $body   = (string)curl_exec($ch);
-    $status = (int)curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    error_log("Resend API [$status]: $body");
+    ];
+    $context = stream_context_create($options);
+    $body = @file_get_contents(
+        'https://api.resend.com/emails',
+        false,
+        $context
+    );
+    $status = 0;
+    if (isset($http_response_header[0]) &&
+        preg_match('/\s(\d{3})\s/', $http_response_header[0], $matches)) {
+        $status = (int)$matches[1];
+    }
+    error_log("Resend API [$status]: " . ($body ?: 'No response'));
     return $status >= 200 && $status < 300;
 }
 
