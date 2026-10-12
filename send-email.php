@@ -319,11 +319,12 @@ if (!$sent) {
 
 // ── 13. Send customer confirmation (best-effort) ──────────────────────────────
 sendResend($apiKey, [
-    'from'    => MAIL_FROM,
-    'to'      => [(string)$email],
-    'subject' => "We received your request | Cooper's Floors",
-    'html'    => $confirmHtml,
-    'text'    => $confirmText,
+    'from'     => MAIL_FROM,
+    'to'       => [(string)$email],
+    'reply_to' => MAIL_TO,
+    'subject'  => "We received your request | Cooper's Floors",
+    'html'     => $confirmHtml,
+    'text'     => $confirmText,
 ]);
 
 ob_clean();
