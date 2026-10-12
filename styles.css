@@ -455,6 +455,9 @@ img { max-width: 100%; height: auto; display: block; }
   .hero-page  { padding-top: 110px !important; }
 }
 @media (max-width: 760px) {
+  .hero-home {
+    min-height: clamp(420px, 70vh, 540px);
+  }
   .hero-page {
     min-height: clamp(320px, 62vh, 460px);
     padding-bottom: 90px !important;
@@ -1030,7 +1033,7 @@ img { max-width: 100%; height: auto; display: block; }
   gap: 6px;
   max-width: 320px;
 }
-.about-founder-cursive { font-family: 'Caveat', cursive; font-size: clamp(38px,4vw,54px); color: #1C1C18; }
+.about-founder-cursive { font-family: 'Mrs Saint Delafield', cursive; font-weight: 400; font-size: clamp(52px,5.5vw,76px); color: #1C1C18; }
 .about-founder-label { font-size: 10px; letter-spacing: .18em; color: #686159; text-transform: uppercase; }
 .about-founders-divider { width: 1px; height: 72px; background: #E9E1D5; flex: none; margin: 0 clamp(24px,4vw,56px); }
 
