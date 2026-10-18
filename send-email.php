@@ -123,7 +123,7 @@ if (!$email) {
 }
 
 // Max-length guards on common fields
-if (strlen($rawEmail) > 200 || mb_strlen($firstName) > 100 || mb_strlen($lastName) > 100 || mb_strlen($phone) > 50) {
+if (strlen($rawEmail) > 200 || strlen($firstName) > 100 || strlen($lastName) > 100 || strlen($phone) > 50) {
     jsonError(400, 'One or more fields exceed the maximum allowed length.');
 }
 
@@ -137,7 +137,7 @@ if ($formType === 'contact') {
     if (!$message) {
         jsonError(400, 'A message is required.');
     }
-    if (mb_strlen($message) > 5000) {
+    if (strlen($message) > 5000) {
         jsonError(400, 'Message is too long.');
     }
     $extraFields = ['Message' => $message];
@@ -159,9 +159,9 @@ if ($formType === 'contact') {
     if (!preg_match('/^\d{5}$/', $zipCode)) {
         jsonError(400, 'A valid 5-digit ZIP code is required.');
     }
-    if (mb_strlen($flooringType) > 100 || mb_strlen($projectType) > 100 ||
-        mb_strlen($projectSize) > 100  || mb_strlen($timeline) > 100 ||
-        mb_strlen($additionalDetails) > 2000) {
+    if (strlen($flooringType) > 100 || strlen($projectType) > 100 ||
+        strlen($projectSize) > 100  || strlen($timeline) > 100 ||
+        strlen($additionalDetails) > 2000) {
         jsonError(400, 'One or more fields exceed the maximum allowed length.');
     }
 
@@ -180,7 +180,7 @@ if ($formType === 'contact') {
     if (!$phone) {
         jsonError(400, 'Phone number is required.');
     }
-    if (mb_strlen($typeChoice) > 20 || mb_strlen($message) > 5000) {
+    if (strlen($typeChoice) > 20 || strlen($message) > 5000) {
         jsonError(400, 'One or more fields exceed the maximum allowed length.');
     }
     $extraFields = [
