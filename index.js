@@ -356,6 +356,7 @@ if (testiTrack && reviews) {
       } catch {
         if (error) error.hidden = false;
         if (btn)   { btn.disabled = false; btn.textContent = orig; }
+        if (window.turnstile) turnstile.reset();
       }
     });
   }

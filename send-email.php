@@ -8,8 +8,8 @@ ob_start(); // buffer any stray warnings so they never corrupt the JSON response
 // Update this value once your Resend domain is verified.
 define('MAIL_FROM',   'Cooper Floors Website <website@contact.coopersfloors.com>');
 define('MAIL_TO',     'coopersfloors@outlook.com');
-define('RATE_LIMIT',  3);   // max submissions per IP
-define('RATE_WINDOW', 60);  // within this many seconds
+define('RATE_LIMIT',  3);    // max submissions per IP per form type
+define('RATE_WINDOW', 600);  // within this many seconds (10 minutes)
 
 // ── Response helpers ─────────────────────────────────────────────────────────
 header('Content-Type: application/json; charset=utf-8');
@@ -27,17 +27,21 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     jsonError(405, 'Method not allowed.');
 }
 
-// ── 2. Load API key ──────────────────────────────────────────────────────────
-// config.local.php is gitignored and calls putenv() with your Resend key.
-// On production, set the RESEND_API_KEY server environment variable instead.
+// ── 2. Load API keys ─────────────────────────────────────────────────────────
+// config.local.php is gitignored and calls putenv() with your API keys.
+// On production, set environment variables instead (RESEND_API_KEY, TURNSTILE_SECRET_KEY).
 @include_once __DIR__ . '/config.local.php';
-$apiKey = getenv('RESEND_API_KEY');
+$apiKey      = getenv('RESEND_API_KEY');
+$tsSecret    = getenv('TURNSTILE_SECRET_KEY'); // empty = Turnstile check skipped (graceful degradation)
 if (!$apiKey) {
     jsonError(500, 'Server configuration error. Please call us at 763-786-9616.');
 }
 
 // ── 3. Parse JSON body ───────────────────────────────────────────────────────
-$raw   = (string)file_get_contents('php://input');
+$raw = (string)file_get_contents('php://input');
+if (strlen($raw) > 50000) {
+    jsonError(400, 'Invalid request.');
+}
 $input = json_decode($raw, true);
 if (!is_array($input)) {
     jsonError(400, 'Invalid request.');
@@ -51,9 +55,34 @@ if (!empty($input['website'])) {
     exit;
 }
 
-// ── 5. Rate limiting (file-based, no dependencies) ───────────────────────────
-$ip       = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
-$rateFile = sys_get_temp_dir() . '/cf_rl_' . md5($ip);
+// ── 5. Turnstile verification ─────────────────────────────────────────────────
+// Skipped if TURNSTILE_SECRET_KEY is not configured (graceful degradation).
+// Once configured, a valid token is required for every submission.
+$ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+if ($tsSecret) {
+    $tsToken = trim((string)($input['cf-turnstile-response'] ?? ''));
+    if (!$tsToken) {
+        jsonError(403, 'Security verification required. Please ensure JavaScript is enabled and try again.');
+    }
+    $tsCtx = stream_context_create([
+        'http' => [
+            'method'        => 'POST',
+            'header'        => 'Content-Type: application/x-www-form-urlencoded',
+            'content'       => http_build_query(['secret' => $tsSecret, 'response' => $tsToken, 'remoteip' => $ip]),
+            'timeout'       => 10,
+            'ignore_errors' => true,
+        ],
+    ]);
+    $tsBody = @file_get_contents('https://challenges.cloudflare.com/turnstile/v0/siteverify', false, $tsCtx);
+    $tsData = $tsBody ? json_decode($tsBody, true) : null;
+    if (!is_array($tsData) || empty($tsData['success'])) {
+        jsonError(403, 'Verification failed. Please refresh the page and try again.');
+    }
+}
+
+// ── 6. Rate limiting (file-based, per IP per form type) ──────────────────────
+$formTypeRaw = trim(strip_tags((string)($input['formType'] ?? '')));
+$rateFile = sys_get_temp_dir() . '/cf_rl_' . md5($ip . '_' . $formTypeRaw);
 $now      = time();
 $window   = [];
 
@@ -73,12 +102,12 @@ if (count($window) >= RATE_LIMIT) {
 $window[] = $now;
 @file_put_contents($rateFile, json_encode($window), LOCK_EX);
 
-// ── 6. Sanitize helper ───────────────────────────────────────────────────────
+// ── 7. Sanitize helper ───────────────────────────────────────────────────────
 function san($v): string {
     return htmlspecialchars(strip_tags(trim((string)($v ?? ''))), ENT_QUOTES | ENT_HTML5, 'UTF-8');
 }
 
-// ── 7. Common fields ─────────────────────────────────────────────────────────
+// ── 8. Common fields ─────────────────────────────────────────────────────────
 $formType  = san($input['formType'] ?? '');
 $firstName = san($input['FirstName'] ?? '');
 $lastName  = san($input['LastName']  ?? '');
@@ -93,7 +122,12 @@ if (!$email) {
     jsonError(400, 'A valid email address is required.');
 }
 
-// ── 8. Per-type validation ───────────────────────────────────────────────────
+// Max-length guards on common fields
+if (strlen($rawEmail) > 200 || mb_strlen($firstName) > 100 || mb_strlen($lastName) > 100 || mb_strlen($phone) > 50) {
+    jsonError(400, 'One or more fields exceed the maximum allowed length.');
+}
+
+// ── 9. Per-type validation ───────────────────────────────────────────────────
 $extraFields   = [];
 $subjectLine   = "New Estimate Request \u{2014} Cooper's Floors";
 
@@ -102,6 +136,9 @@ if ($formType === 'contact') {
     $message     = san($input['Message'] ?? '');
     if (!$message) {
         jsonError(400, 'A message is required.');
+    }
+    if (mb_strlen($message) > 5000) {
+        jsonError(400, 'Message is too long.');
     }
     $extraFields = ['Message' => $message];
 
@@ -122,6 +159,11 @@ if ($formType === 'contact') {
     if (!preg_match('/^\d{5}$/', $zipCode)) {
         jsonError(400, 'A valid 5-digit ZIP code is required.');
     }
+    if (mb_strlen($flooringType) > 100 || mb_strlen($projectType) > 100 ||
+        mb_strlen($projectSize) > 100  || mb_strlen($timeline) > 100 ||
+        mb_strlen($additionalDetails) > 2000) {
+        jsonError(400, 'One or more fields exceed the maximum allowed length.');
+    }
 
     $extraFields = [
         'Flooring Type'      => $flooringType,
@@ -138,6 +180,9 @@ if ($formType === 'contact') {
     if (!$phone) {
         jsonError(400, 'Phone number is required.');
     }
+    if (mb_strlen($typeChoice) > 20 || mb_strlen($message) > 5000) {
+        jsonError(400, 'One or more fields exceed the maximum allowed length.');
+    }
     $extraFields = [
         'Request Type' => $typeChoice,
         'Message'      => $message ?: '—',
@@ -147,7 +192,7 @@ if ($formType === 'contact') {
     jsonError(400, 'Invalid form submission.');
 }
 
-// ── 9. Build email content ───────────────────────────────────────────────────
+// ── 10. Build email content ──────────────────────────────────────────────────
 $allFields = array_merge(
     [
         'First Name' => $firstName,
@@ -216,7 +261,7 @@ HTML;
 
 $textBody = "$subjectLine\n\n$rowsText\n--\nSent from the Cooper's Floors website contact form.";
 
-// ── 10. Customer confirmation content ────────────────────────────────────────
+// ── 11. Customer confirmation content ────────────────────────────────────────
 $confirmHtml = <<<HTML
 <!DOCTYPE html>
 <html lang="en">
@@ -274,7 +319,7 @@ HTML;
 
 $confirmText = "Hi $firstName,\n\nThanks for reaching out to Cooper's Floors. We've received your request and someone from our team will get back to you shortly.\n\nCooper's Floors\nPhone: 763-786-9616\nEmail: CoopersFloors@outlook.com\nAddress: 13640 Crosstown Blvd NW, Andover, MN 55304\nHours: Mon-Fri 10AM-5PM, Sat 10AM-3PM\n\n--\nYou're receiving this because you submitted a request on coopersfloors.com.";
 
-// ── 11. Resend API helper ─────────────────────────────────────────────────────
+// ── 12. Resend API helper ────────────────────────────────────────────────────
 function sendResend(string $key, array $payload): bool {
     $options = [
         'http' => [
@@ -303,7 +348,7 @@ function sendResend(string $key, array $payload): bool {
     return $status >= 200 && $status < 300;
 }
 
-// ── 12. Send business notification ───────────────────────────────────────────
+// ── 13. Send business notification ───────────────────────────────────────────
 $sent = sendResend($apiKey, [
     'from'     => MAIL_FROM,
     'to'       => [MAIL_TO],
@@ -317,7 +362,7 @@ if (!$sent) {
     jsonError(500, "We couldn't send your message. Please try again or call us at 763-786-9616.");
 }
 
-// ── 13. Send customer confirmation (best-effort) ──────────────────────────────
+// ── 14. Send customer confirmation (best-effort) ─────────────────────────────
 sendResend($apiKey, [
     'from'     => MAIL_FROM,
     'to'       => [(string)$email],

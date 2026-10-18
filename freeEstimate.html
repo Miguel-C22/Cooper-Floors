@@ -14,6 +14,8 @@
     <meta property="og:image" content="Images/open-graph-image.png">
     <meta property="og:type" content="website">
     <title>Estimate &amp; Consultation — Cooper's Floors</title>
+    <!-- Cloudflare Turnstile widget script -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
     <nav>
@@ -93,6 +95,8 @@
                             <textarea class="userInput" name="Message" placeholder="How can we help you!"></textarea>
                         </div>
                     </div>
+                    <!-- TURNSTILE_SITE_KEY: replace 0x4AAAAAAFZq1bhIN_bYCJRT with your actual site key -->
+                    <div class="cf-turnstile" data-sitekey="0x4AAAAAAFZq1bhIN_bYCJRT" data-theme="light"></div>
                     <input class="sumbit" type="submit">
                 </form>
         </section>
@@ -169,6 +173,7 @@
           .catch(function () {
             if (error) error.hidden = false;
             if (btn) { btn.disabled = false; btn.value = orig; }
+            if (window.turnstile) turnstile.reset();
           });
         });
       })();

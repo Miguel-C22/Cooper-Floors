@@ -11,6 +11,8 @@
   <meta property="og:image" content="Images/open-graph-image.png">
   <meta property="og:type" content="website">
   <title>Contact — Cooper's Floors</title>
+  <!-- Cloudflare Turnstile widget script -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
@@ -127,6 +129,8 @@
       <label class="form-label">Email *<input class="form-input" type="email" name="Email" required></label>
       <label class="form-label">Phone<input class="form-input" type="tel" name="Phone" placeholder="123-456-7890"></label>
       <label class="form-label">Message *<textarea class="form-textarea" name="Message" rows="4" placeholder="How can we help?" required></textarea></label>
+      <!-- TURNSTILE_SITE_KEY: replace 0x4AAAAAAFZq1bhIN_bYCJRT with your actual site key -->
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAAFZq1bhIN_bYCJRT" data-theme="light"></div>
       <button type="submit" class="form-submit">Send Message →</button>
       <div class="form-trust">🔒 Your information is never shared. We typically respond within 1 business day.</div>
     </form>
@@ -222,6 +226,8 @@
         <label class="form-label">Phone *<input class="form-input" type="tel" name="Phone" placeholder="123-456-7890" required></label>
         <label class="form-label">Project ZIP Code *<input class="form-input" type="text" name="ZipCode" placeholder="55304" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" required></label>
         <label class="form-label">Anything else you'd like us to know?<textarea class="form-textarea" name="AdditionalDetails" rows="3" placeholder="Tell us a little more about your project..."></textarea></label>
+        <!-- TURNSTILE_SITE_KEY: replace 0x4AAAAAAFZq1bhIN_bYCJRT with your actual site key -->
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAFZq1bhIN_bYCJRT" data-theme="light"></div>
         <div style="display:flex;gap:10px;align-items:stretch">
           <button type="button" class="form-back-btn" id="estBack">← Back</button>
           <button type="submit" class="form-submit" style="flex:1">Request My Free Estimate →</button>
