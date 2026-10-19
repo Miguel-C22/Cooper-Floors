@@ -31,9 +31,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 // config.local.php is gitignored and calls putenv() with your API keys.
 // On production, set environment variables instead (RESEND_API_KEY, TURNSTILE_SECRET_KEY).
 @include_once __DIR__ . '/config.local.php';
-$apiKey      = getenv('RESEND_API_KEY');
-$tsSecret    = getenv('TURNSTILE_SECRET_KEY'); // empty = Turnstile check skipped (graceful degradation)
-if (!$apiKey) {
+$apiKey   = getenv('RESEND_API_KEY');
+$tsSecret = getenv('TURNSTILE_SECRET_KEY');
+if (!$apiKey || !$tsSecret) {
     jsonError(500, 'Server configuration error. Please call us at 763-786-9616.');
 }
 
@@ -56,28 +56,38 @@ if (!empty($input['website'])) {
 }
 
 // ── 5. Turnstile verification ─────────────────────────────────────────────────
-// Skipped if TURNSTILE_SECRET_KEY is not configured (graceful degradation).
-// Once configured, a valid token is required for every submission.
-$ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
-if ($tsSecret) {
-    $tsToken = trim((string)($input['cf-turnstile-response'] ?? ''));
-    if (!$tsToken) {
-        jsonError(403, 'Security verification required. Please ensure JavaScript is enabled and try again.');
-    }
-    $tsCtx = stream_context_create([
-        'http' => [
-            'method'        => 'POST',
-            'header'        => 'Content-Type: application/x-www-form-urlencoded',
-            'content'       => http_build_query(['secret' => $tsSecret, 'response' => $tsToken, 'remoteip' => $ip]),
-            'timeout'       => 10,
-            'ignore_errors' => true,
-        ],
-    ]);
-    $tsBody = @file_get_contents('https://challenges.cloudflare.com/turnstile/v0/siteverify', false, $tsCtx);
-    $tsData = $tsBody ? json_decode($tsBody, true) : null;
-    if (!is_array($tsData) || empty($tsData['success'])) {
-        jsonError(403, 'Verification failed. Please refresh the page and try again.');
-    }
+// Always required — TURNSTILE_SECRET_KEY must be set (checked in step 2).
+// Siteverify is called before rate limiting, validation, and Resend.
+// Real client IP — Cloudflare sets CF-Connecting-IP; fall back through forwarded headers.
+$ip = trim(explode(',',
+    $_SERVER['HTTP_CF_CONNECTING_IP']
+    ?? $_SERVER['HTTP_X_FORWARDED_FOR']
+    ?? $_SERVER['REMOTE_ADDR']
+    ?? 'unknown'
+)[0]);
+
+$tsToken = trim((string)($input['cf-turnstile-response'] ?? ''));
+if (!$tsToken) {
+    jsonError(403, 'Security verification required. Please ensure JavaScript is enabled and try again.');
+}
+$tsCtx = stream_context_create([
+    'http' => [
+        'method'        => 'POST',
+        'header'        => 'Content-Type: application/x-www-form-urlencoded',
+        'content'       => http_build_query(['secret' => $tsSecret, 'response' => $tsToken, 'remoteip' => $ip]),
+        'timeout'       => 10,
+        'ignore_errors' => true,
+    ],
+]);
+$tsBody = @file_get_contents('https://challenges.cloudflare.com/turnstile/v0/siteverify', false, $tsCtx);
+$tsData = $tsBody ? json_decode($tsBody, true) : null;
+if (!is_array($tsData) || empty($tsData['success'])) {
+    jsonError(403, 'Verification failed. Please refresh the page and try again.');
+}
+// Confirm token was issued for this site, not a different domain.
+$allowedHosts = ['coopersfloors.com', 'www.coopersfloors.com'];
+if (!in_array($tsData['hostname'] ?? '', $allowedHosts, true)) {
+    jsonError(403, 'Verification failed. Please refresh the page and try again.');
 }
 
 // ── 6. Rate limiting (file-based, per IP per form type) ──────────────────────
